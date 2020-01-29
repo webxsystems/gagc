@@ -10,12 +10,29 @@
 namespace PHPShopify;
 
 
-class Page extends ShopifyAPI
+/**
+ * --------------------------------------------------------------------------
+ * Page -> Child Resources
+ * --------------------------------------------------------------------------
+ * @property-read Event $Event
+ * @property-read Metafield $Metafield
+ *
+ * @method Event Event(integer $id = null)
+ * @method Metafield Metafield(integer $id = null)
+ *
+ */
+class Page extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey = 'page';
+
+    /**
+     * @inheritDoc
+     */
+    protected $childResource = array(
+        'Event',
+        'Metafield',
+    );
 }

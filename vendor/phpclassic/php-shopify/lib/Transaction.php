@@ -10,12 +10,10 @@
 namespace PHPShopify;
 
 
-class Transaction extends ShopifyAPI
+class Transaction extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey = 'transaction';
 }

@@ -10,12 +10,20 @@
 namespace PHPShopify;
 
 
-class ApplicationCharge extends ShopifyAPI
+class ApplicationCharge extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey = 'application_charge';
+
+    /**
+     * @inheritDoc
+     */
+    public $countEnabled = false;
+    
+    // To activate ApplicationCharge
+    protected $customPostActions = array(
+       'activate',
+   );
 }

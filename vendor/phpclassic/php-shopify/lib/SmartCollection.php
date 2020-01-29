@@ -10,21 +10,33 @@
 namespace PHPShopify;
 
 
-/*
+/**
+ * --------------------------------------------------------------------------
+ * SmartCollection -> Child Resources
+ * --------------------------------------------------------------------------
+ * @property-read Event $Event
+ *
+ * @method Event Event(integer $id = null)
+ *
  * --------------------------------------------------------------------------
  * SmartCollection -> Custom actions
  * --------------------------------------------------------------------------
- * @method array sortOrder($params)     Set the ordering type and/or the manual order of products in a smart collection
  *
  */
-class SmartCollection extends ShopifyAPI
+class SmartCollection extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey = 'smart_collection';
+
+    /**
+     * @inheritDoc
+     */
+    protected $childResource = array(
+        'Event',
+        'Metafield',
+    );
 
     /**
      * Set the ordering type and/or the manual order of products in a smart collection
@@ -33,7 +45,8 @@ class SmartCollection extends ShopifyAPI
      *
      * @return array
      */
-    public function sortOrder($params) {
+    public function sortOrder($params)
+    {
         $url = $this->generateUrl($params, 'order');
 
         return $this->put(array(), $url);

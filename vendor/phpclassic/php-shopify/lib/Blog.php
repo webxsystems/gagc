@@ -9,32 +9,32 @@
 
 namespace PHPShopify;
 
-/*
+/**
  * --------------------------------------------------------------------------
  * Blog -> Child Resources
  * --------------------------------------------------------------------------
- * @property-read ShopifyAPI $Article
+ * @property-read Article $Article
+ * @property-read Event $Event
+ * @property-read Metafield $Metafield
  *
- * @method ShopifyAPI Article(integer $id = null)
+ * @method Article Article(integer $id = null)
+ * @method Event Event(integer $id = null)
+ * @method Metafield Metafield(integer $id = null)
  *
  */
-class Blog extends ShopifyAPI
+class Blog extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     public $resourceKey = 'blog';
 
     /**
-     * List of child Resource names / classes
-     * If any array item has an associative key => value pair, value will be considered as the resource name
-     * (by which it will be called) and key will be the associated class name.
-     *
-     * @var array
+     * @inheritDoc
      */
     protected $childResource = array(
         'Article',
+        'Event',
+        'Metafield',
     );
 }

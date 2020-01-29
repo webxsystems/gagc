@@ -10,12 +10,10 @@
 namespace PHPShopify;
 
 
-class OrderRisk extends ShopifyAPI
+class OrderRisk extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey = 'risk';
 }

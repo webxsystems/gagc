@@ -10,19 +10,27 @@
 namespace PHPShopify;
 
 
-class Location extends ShopifyAPI
+class Location extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey = 'location';
 
     /**
-     * If the resource is read only. (No POST / PUT / DELETE actions)
-     *
-     * @var boolean
+     * @inheritDoc
+     */
+    public $countEnabled = false;
+
+    /**
+     * @inheritDoc
      */
     public $readOnly = true;
+
+    /**
+     * @inheritDoc
+     */
+    protected $childResource = array(
+        'InventoryLevel',
+    );
 }

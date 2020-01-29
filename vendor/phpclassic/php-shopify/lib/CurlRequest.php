@@ -9,6 +9,7 @@ namespace PHPShopify;
 
 
 use PHPShopify\Exception\CurlException;
+use PHPShopify\Exception\ResourceRateLimitException;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,14 @@ use PHPShopify\Exception\CurlException;
 class CurlRequest
 {
     /**
+     * HTTP Code of the last executed request
+     *
+     * @var integer
+     */
+    public static $lastHttpCode;
+
+
+    /**
      * Initialize the curl resource
      *
      * @param string $url
@@ -28,7 +37,7 @@ class CurlRequest
      *
      * @return resource
      */
-    public static function init($url, $httpHeaders = array())
+    protected static function init($url, $httpHeaders = array())
     {
         // Create Curl resource
         $ch = curl_init();
@@ -39,8 +48,11 @@ class CurlRequest
         //Return the transfer as a string
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
+        curl_setopt($ch, CURLOPT_HEADER, true);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'PHPClassic/PHPShopify');
+
         $headers = array();
-        foreach($httpHeaders as $key => $value) {
+        foreach ($httpHeaders as $key => $value) {
             $headers[] = "$key: $value";
         }
         //Set HTTP Headers
@@ -130,26 +142,35 @@ class CurlRequest
      *
      * @return string
      */
-    public static function processRequest($ch)
+    protected static function processRequest($ch)
     {
-        // $output contains the output string
-        $output = curl_exec($ch);
+        # Check for 429 leaky bucket error
+        while (1) {
+            $output   = curl_exec($ch);
+            $response = new CurlResponse($output);
+
+            self::$lastHttpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            if (self::$lastHttpCode != 429) {
+                break;
+            }
+
+            $limitHeader = explode('/', $response->getHeader('X-Shopify-Shop-Api-Call-Limit'), 2);
+
+            if (isset($limitHeader[1]) && $limitHeader[0] < $limitHeader[1]) {
+                throw new ResourceRateLimitException($response->getBody());
+            }
+
+            usleep(500000);
+        }
 
         if (curl_errno($ch)) {
             throw new Exception\CurlException(curl_errno($ch) . ' : ' . curl_error($ch));
         }
 
-        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        $httpOK = 200;
-        $httpCreated = 201;
-
-        if ($httpCode != $httpOK && $httpCode != $httpCreated) {
-            throw new Exception\CurlException("Request failed with HTTP Code $httpCode.");
-        }
-
         // close curl resource to free up system resources
         curl_close($ch);
 
-        return $output;
+        return $response->getBody();
     }
+    
 }

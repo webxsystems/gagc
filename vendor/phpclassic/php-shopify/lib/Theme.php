@@ -10,30 +10,29 @@
 namespace PHPShopify;
 
 
-/*
+/**
  * --------------------------------------------------------------------------
  * Theme -> Child Resources
  * --------------------------------------------------------------------------
- * @property-read ShopifyAPI $Asset
+ * @property-read Asset $Asset
  *
- * @method ShopifyAPI Asset(integer $id = null)
+ * @method Asset Asset(integer $id = null)
  *
  */
-class Theme extends ShopifyAPI
+class Theme extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     public $resourceKey = 'theme';
 
     /**
-     * List of child Resource names / classes
-     * If any array item has an associative key => value pair, value will be considered as the resource name
-     * (by which it will be called) and key will be the associated class name.
-     *
-     * @var array
+     * @inheritDoc
+     */
+    public $countEnabled = false;
+
+    /**
+     * @inheritDoc
      */
     protected $childResource = array(
         'Asset'

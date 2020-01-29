@@ -10,39 +10,31 @@
 namespace PHPShopify;
 
 
-/*
+/**
  * --------------------------------------------------------------------------
  * Country -> Child Resources
  * --------------------------------------------------------------------------
- * @property-read ShopifyAPI $Province
+ * @property-read Province $Province
  *
- * @method ShopifyAPI Province(integer $id = null)
+ * @method Province Province(integer $id = null)
  *
  */
-class Country extends ShopifyAPI
+class Country extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey = 'country';
 
     /**
-     * List of child Resource names / classes
-     * If any array item has an associative key => value pair, value will be considered as the resource name
-     * (by which it will be called) and key will be the associated class name.
-     *
-     * @var array
+     * @inheritDoc
      */
     protected $childResource = array(
         'Province',
     );
 
     /**
-     * Get the pluralized version of the resource key
-     *
-     * @return string
+     * @inheritDoc
      */
     protected function pluralizeKey()
     {

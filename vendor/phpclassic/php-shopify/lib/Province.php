@@ -10,12 +10,10 @@
 namespace PHPShopify;
 
 
-class Province extends ShopifyAPI
+class Province extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey = 'province';
 }

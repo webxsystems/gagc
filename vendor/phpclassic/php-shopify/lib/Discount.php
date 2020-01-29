@@ -10,7 +10,7 @@
 namespace PHPShopify;
 
 
-/*
+/**
  * --------------------------------------------------------------------------
  * Discount -> Custom actions
  * --------------------------------------------------------------------------
@@ -18,22 +18,15 @@ namespace PHPShopify;
  * @method array disable()      Disable a discount
  *
  */
-class Discount extends ShopifyAPI
+class Discount extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey = 'discount';
 
     /**
-     * List of custom POST actions
-     * @example: ['enable', 'disable', 'remove','default' => 'makeDefault']
-     * Methods can be called like enable(), disable(), remove(), makeDefault() etc.
-     * If any array item has an associative key => value pair, value will be considered as the method name and key will be the associated path to be used with the action.
-     *
-     * @var array
+     * @inheritDoc
      */
     protected $customPostActions = array(
         'enable',

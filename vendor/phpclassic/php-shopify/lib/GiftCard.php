@@ -10,38 +10,39 @@
 namespace PHPShopify;
 
 
-/*
+/**
  * --------------------------------------------------------------------------
  * GiftCard -> Custom actions
  * --------------------------------------------------------------------------
- * @method array disable()      Disable a gift card. Disabling a gift card is permanent and cannot be undone.
+ * @method array search()       Search for gift cards matching supplied query
  *
  */
-class GiftCard extends ShopifyAPI
+class GiftCard extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey = 'gift_card';
 
     /**
-     * If search is enabled for the resource
-     *
-     * @var boolean
+     * @inheritDoc
      */
-    protected $searchEnabled = true;
+    public $searchEnabled = true;
 
     /**
-     * List of custom POST actions
-     * @example: ['enable', 'disable', 'remove','default' => 'makeDefault']
-     * Methods can be called like enable(), disable(), remove(), makeDefault() etc.
-     * If any array item has an associative key => value pair, value will be considered as the method name and key will be the associated path to be used with the action.
+     * Disable a gift card.
+     * Disabling a gift card is permanent and cannot be undone.
      *
-     * @var array
+     * @return array
      */
-    protected $customPostActions = array(
-        'disable',
-    );
+    public function disable()
+    {
+        $url = $this->generateUrl(array(), 'disable');
+
+        $dataArray = array(
+            'id' => $this->id,
+        );
+
+        return $this->post($dataArray, $url);
+    }
 }

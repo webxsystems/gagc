@@ -10,12 +10,15 @@
 namespace PHPShopify;
 
 
-class CarrierService extends ShopifyAPI
+class CarrierService extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey = 'carrier_service';
+
+    /**
+     * @inheritDoc
+     */
+    public $countEnabled = false;
 }

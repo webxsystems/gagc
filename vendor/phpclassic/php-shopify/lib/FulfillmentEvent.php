@@ -10,19 +10,15 @@
 namespace PHPShopify;
 
 
-class FulfillmentEvent extends ShopifyAPI
+class FulfillmentEvent extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey = 'fulfillment_event';
 
     /**
-     * Get the resource path to be used to generate the api url
-     *
-     * @return string
+     * @inheritDoc
      */
     public function getResourcePath()
     {
@@ -30,9 +26,7 @@ class FulfillmentEvent extends ShopifyAPI
     }
 
     /**
-     * Get the resource key to be used for while sending data to the API
-     *
-     * @return string
+     * @inheritDoc
      */
     public function getResourcePostKey()
     {

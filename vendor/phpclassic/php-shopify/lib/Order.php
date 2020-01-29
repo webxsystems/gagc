@@ -11,41 +11,57 @@ namespace PHPShopify;
 
 
 
-/*
+/**
  * --------------------------------------------------------------------------
  * Order -> Child Resources
  * --------------------------------------------------------------------------
- * @property-read ShopifyAPI $Fulfillment
- * @property-read ShopifyAPI $Risk
- * @property-read ShopifyAPI $Refund
- * @property-read ShopifyAPI $Transaction
+ * @property-read Fulfillment $Fulfillment
+ * @property-read OrderRisk $Risk
+ * @property-read Refund $Refund
+ * @property-read Transaction $Transaction
+ * @property-read Event $Event
+ * @property-read Metafield $Metafield
  *
- * @method ShopifyAPI Fulfillment(integer $id = null)
- * @method ShopifyAPI Risk(integer $id = null)
- * @method ShopifyAPI Refund(integer $id = null)
- * @method ShopifyAPI Transaction(integer $id = null)
+ * @method Fulfillment Fulfillment(integer $id = null)
+ * @method OrderRisk Risk(integer $id = null)
+ * @method Refund Refund(integer $id = null)
+ * @method Transaction Transaction(integer $id = null)
+ * @method Event Event(integer $id = null)
+ * @method Metafield Metafield(integer $id = null)
+ *
+ * --------------------------------------------------------------------------
+ * Order -> Custom actions
+ * --------------------------------------------------------------------------
+ * @method array close()     Close an Order
+ * @method array open()         Re-open a closed Order
+ * @method array cancel(array $data)  Cancel an Order
  *
  */
-class Order extends ShopifyAPI
+class Order extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey = 'order';
 
     /**
-     * List of child Resource names / classes
-     * If any array item has an associative key => value pair, value will be considered as the resource name
-     * (by which it will be called) and key will be the associated class name.
-     *
-     * @var array
+     * @inheritDoc
      */
     protected $childResource = array (
         'Fulfillment',
         'OrderRisk' => 'Risk',
         'Refund',
         'Transaction',
+        'Event',
+        'Metafield',
+    );
+
+    /**
+     * @inheritDoc
+     */
+    protected $customPostActions = array(
+        'close',
+        'open',
+        'cancel',
     );
 }

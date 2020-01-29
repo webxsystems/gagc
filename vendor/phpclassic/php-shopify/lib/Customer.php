@@ -10,39 +10,54 @@
 namespace PHPShopify;
 
 
-/*
+/**
  * --------------------------------------------------------------------------
  * Customer -> Child Resources
  * --------------------------------------------------------------------------
- * @property-read ShopifyAPI $Address
+ * @property-read CustomerAddress $Address
+ * @property-read Metafield $Metafield
  *
- * @method ShopifyAPI Address(integer $id = null)
- *
+ * @method CustomerAddress Address(integer $id = null)
+ * @method Metafield Metafield(integer $id = null)
+ * --------------------------------------------------------------------------
+ * Customer -> Custom actions
+ * --------------------------------------------------------------------------
+ * @method array search()      Search for customers matching supplied query
  */
-class Customer extends ShopifyAPI
+class Customer extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     protected $resourceKey ='customer';
 
     /**
-     * If search is enabled for the resource
-     *
-     * @var boolean
+     * @inheritDoc
      */
-    protected $searchEnabled = true;
+    public $searchEnabled = true;
 
     /**
-     * List of child Resource names / classes
-     * If any array item has an associative key => value pair, value will be considered as the resource name
-     * (by which it will be called) and key will be the associated class name.
-     *
-     * @var array
+     * @inheritDoc
      */
     protected $childResource = array(
-        'CustomerAddress' => 'Address'
+        'CustomerAddress' => 'Address',
+        'Metafield',
+        'Order'
     );
+
+    /**
+     * Sends an account invite to a customer.
+     *
+     * @param array $customer_invite Customized invite data
+     *
+     * @return array
+     */
+    public function send_invite($customer_invite = array())
+    {
+        if (empty ( $customer_invite ) ) $customer_invite = new \stdClass();
+        $url = $this->generateUrl(array(), 'send_invite');
+        $dataArray = $this->wrapData($customer_invite, 'customer_invite');
+
+        return $this->post($dataArray, $url, false);
+    }
 }

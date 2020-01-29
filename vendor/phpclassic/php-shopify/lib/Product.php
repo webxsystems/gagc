@@ -10,38 +10,35 @@
 namespace PHPShopify;
 
 
-/*
+/**
  * --------------------------------------------------------------------------
  * Product -> Child Resources
  * --------------------------------------------------------------------------
- * @property-read ShopifyAPI $Image
- * @property-read ShopifyAPI $Variant
- * @property-read ShopifyAPI $Metafield
+ * @property-read ProductImage $Image
+ * @property-read ProductVariant $Variant
+ * @property-read Metafield $Metafield
+ * @property-read Event $Event
  *
- * @method ShopifyAPI Image(integer $id = null)
- * @method ShopifyAPI Variant(integer $id = null)
- * @method ShopifyAPI Metafield(integer $id = null)
+ * @method ProductImage Image(integer $id = null)
+ * @method ProductVariant Variant(integer $id = null)
+ * @method Metafield Metafield(integer $id = null)
+ * @method Event Event(integer $id = null)
  *
  */
-class Product extends ShopifyAPI
+class Product extends ShopifyResource
 {
     /**
-     * Key of the API Resource which is used to fetch data from request responses
-     *
-     * @var string
+     * @inheritDoc
      */
     public $resourceKey = 'product';
 
     /**
-     * List of child Resource names / classes
-     * If any array item has an associative key => value pair, value will be considered as the resource name
-     * (by which it will be called) and key will be the associated class name.
-     *
-     * @var array
+     * @inheritDoc
      */
     protected $childResource = array(
         'ProductImage' => 'Image',
         'ProductVariant' => 'Variant',
         'Metafield',
+        'Event'
     );
 }
