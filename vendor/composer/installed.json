@@ -1,0 +1,47 @@
+[
+    {
+        "name": "phpclassic/php-shopify",
+        "version": "1.0.0-beta",
+        "version_normalized": "1.0.0.0-beta",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/phpclassic/php-shopify.git",
+            "reference": "2ab054ea5fb89611481324b7a256209d15cc5e20"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/phpclassic/php-shopify/zipball/2ab054ea5fb89611481324b7a256209d15cc5e20",
+            "reference": "2ab054ea5fb89611481324b7a256209d15cc5e20",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "php": ">=5.4"
+        },
+        "time": "2016-08-20T18:28:57+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "PHPShopify\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "Apache License 2.0"
+        ],
+        "authors": [
+            {
+                "name": "Tareq Mahmood",
+                "email": "tareqtms@yahoo.com"
+            }
+        ],
+        "description": "PHP SDK for Shopify API",
+        "homepage": "https://github.com/phpclassic/php-shopify",
+        "keywords": [
+            "php",
+            "sdk",
+            "shopify"
+        ]
+    }
+]
