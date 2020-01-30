@@ -1,0 +1,10 @@
+API key : f228e039662e793f769db44bac35bc73
+API secret key :  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
+
+https://38b3692b6b48a9712b8d909c46e6208d:c2dc0abbdef5825da69ee1647962ce2d@example.myshopify.com/admin/api/2020-01/products.json
+
+API KEY : 1b8627578b2b9d0896f7392803221e10
+Password : 62a23c57e44dfcafe8340d432ea37176
+Example URL : https://1b8627578b2b9d0896f7392803221e10:62a23c57e44dfcafe8340d432ea37176@greatamericangold.myshopify.com/admin/api/2020-01/orders.json
+Shared Secret : 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
+Storefront access token : 6b6cee771b9c96bae6687cda210a3592
