@@ -21,21 +21,7 @@ $product = array(
                 )
 );
 
-| $products = $shopify->Product->post($productInfo);
 
-{
-    "product": {
-    "title": "",
-    "body_html": "GOLD BARS ASSORTED WEIGHTS",
-    "vendor": "PRIVATE MINT",
-    "product_type": "Bullion Bars",
-    "tags": [
-        "Barnes & Noble",
-        "John's Fav",
-        "\"Big Air\""
-    ]
-  }
-}
 
 
             [isIRAConnectEligible] => N
@@ -85,6 +71,7 @@ public function createProduct()
                 "body_html" => "GOLD BARS ASSORTED WEIGHTS",
                 "vendor" => "PRIVATE MINT"
     );
+    //Create a new product
 
-    $products =
+    $products = $shopify->Product->post($productInfo);
 }

@@ -42,6 +42,6 @@ echo "</pre>";
     "vendor" => "Burton",
     "product_type" => "Snowboard",
  );
- $products = $shopify->Product->post($productInfo);
+ //$products = $shopify->Product->post($productInfo);
 
- print_r($products);
+ //print_r($products);
