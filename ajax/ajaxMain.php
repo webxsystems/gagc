@@ -46,10 +46,10 @@ foreach($goldProducts as $goldProduct){
 
     //print_r($goldPrice->{'tiers'}->{4}->{'bid'});
     echo "<pre>";
-    //print_r($goldImages);
-    //print_r($goldPrice->tiers);
-    //print_r($GetPrices);
-    //print_r($GetProducts);
+    print_r($goldImages);
+    print_r($goldPrice->tiers);
+    print_r($GetPrices);
+    print_r($GetProducts);
     echo "</pre>";
 }
 /*
