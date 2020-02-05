@@ -9,19 +9,6 @@
 require __DIR__ . '/vendor/autoload.php';
 
 use PHPShopify\ShopifySDK;
-//
-//
-//$product = array(
-//            "product"   =>
-//                array(
-//                        "title" => "Burton Custom Freestyle 151",
-//                        "body_html" => "<strong>Good snowboard!</strong>",
-//                        "vendor" => "Burton",
-//                        "product_type" => "Snowboard"
-//                )
-//);
-
-//print_r(json_encode($product));
 
 $config = array(
     'ShopUrl'       =>  'greatamericangold.myshopify.com',
@@ -29,14 +16,23 @@ $config = array(
     'Password'      =>  '62a23c57e44dfcafe8340d432ea37176'
 );
 
-$shopify = new ShopifySDK($config);
 
-$p = $shopify->Product->get();
-echo "<pre>";
-print_r($p);
-echo "</pre>";
+$shopifyMain = new ShopifySDK($config);
 
- //Create a new product
+$p = $shopifyMain->Product->get();
+
+$fiztradeGetProducts = new fiztradeGetProducts();
+$fiztradeGetPrices   = new fiztradeGetPrices();
+$fiztradeGetImages   = new fiztradeGetImages();
+
+
+
+
+
+
+//Create a new product
+
+/*
  $productInfo = array(
             "title" => $shopify->
             "body_html" =>
@@ -136,7 +132,7 @@ echo "</pre>";
                 )
 
         )
-  );
+  );      */
  
  //$products = $shopify->Product->post($productInfo);
 

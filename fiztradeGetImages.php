@@ -6,7 +6,7 @@
  * Time: 8:57 PM
  */
 
-class GetImages
+class fiztradeGetImages
 {
     public $api;
     public $devServerURL;

@@ -6,7 +6,7 @@
  * Time: 10:07 AM
  */
 
-class GetPrices
+class fiztradeGetPrices
 {
     public $api;
     public $devServerURL;
@@ -31,12 +31,10 @@ class GetPrices
     }
 
     public function ByCode($code){
-        $this->fullpath = "https://connect.fiztrade.com/FizServices/GetPrices/4103-906cd5f5ebddd4dab583e9a5ec0e414d/Gold";
-        $this->method = "GetPrices";
+        $this->fullpath = "https://connect.fiztrade.com/FizServices/fiztradeGetPrices/4103-906cd5f5ebddd4dab583e9a5ec0e414d/Gold";
+        $this->method = "fiztradeGetPrices";
         $this->code = $code;
-//      $this->url = $this->devServerURL.$this->path.$this->api.$this->code;
-        //$c = curl_init($this->url);
-        $c = curl_init("https://connect.fiztrade.com/FizServices/GetPrices/4103-906cd5f5ebddd4dab583e9a5ec0e414d/".$this->code);
+        $c = curl_init("https://connect.fiztrade.com/FizServices/fiztradeGetPrices/4103-906cd5f5ebddd4dab583e9a5ec0e414d/".$this->code);
         curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
         $this->returnJSON = curl_exec($c);
         curl_close($c);

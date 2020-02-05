@@ -8,14 +8,14 @@
 session_start();
 
 include ('../GetProducts.php');
-include ('../GetPrices.php');
-include ('../GetImages.php');
+include('../fiztradeGetPrices.php');
+include('../fiztradeGetImages.php');
 
 $metalType = "Gold";
 
 $GetProducts    = new GetProducts();
-$GetPrices      = new GetPrices();
-$GetImages      = new GetImages();
+$GetPrices      = new fiztradeGetPrices();
+$GetImages      = new fiztradeGetImages();
 
 $goldProducts = json_decode($GetProducts->ByMetalType($metalType));
 //echo "<pre>";
@@ -23,34 +23,34 @@ $goldProducts = json_decode($GetProducts->ByMetalType($metalType));
 //echo "</pre>";
 
 foreach($goldProducts as $goldProduct){
-    $GetProducts->setName($goldProduct->name);
-    $GetProducts->setCode($goldProduct->code);
-    $GetProducts->setCategory($goldProduct->category);
-    $GetProducts->setDescription($goldProduct->description);
-    $GetProducts->setFineness($goldProduct->fineness);
-    $GetProducts->setMetalType($goldProduct->metalType);
-    $GetProducts->setWeight($goldProduct->weight);
+        $GetProducts->setName($goldProduct->name);
+        $GetProducts->setCode($goldProduct->code);
+        $GetProducts->setCategory($goldProduct->category);
+        $GetProducts->setDescription($goldProduct->description);
+        $GetProducts->setFineness($goldProduct->fineness);
+        $GetProducts->setMetalType($goldProduct->metalType);
+        $GetProducts->setWeight($goldProduct->weight);
 
-    $goldPrice = json_decode($GetPrices->ByCode($GetProducts->getCode()));
+        $goldPrice = json_decode($GetPrices->ByCode($GetProducts->getCode()));
 
-    $GetPrices->setPriceTier1($goldPrice->{'tiers'}->{1}->{'ask'});
-    $GetPrices->setPriceTier2($goldPrice->{'tiers'}->{2}->{'ask'});
-    $GetPrices->setPriceTier3($goldPrice->{'tiers'}->{3}->{'ask'});
-    $GetPrices->setPriceTier4($goldPrice->{'tiers'}->{4}->{'ask'});
+        $GetPrices->setPriceTier1($goldPrice->{'tiers'}->{1}->{'ask'});
+        $GetPrices->setPriceTier2($goldPrice->{'tiers'}->{2}->{'ask'});
+        $GetPrices->setPriceTier3($goldPrice->{'tiers'}->{3}->{'ask'});
+        $GetPrices->setPriceTier4($goldPrice->{'tiers'}->{4}->{'ask'});
 
-    $goldImages = json_decode($GetImages->ByCode($GetProducts->getCode()));
+        $goldImages = json_decode($GetImages->ByCode($GetProducts->getCode()));
 
-    $GetImages->setImageURL($goldImages->imageURL);
-    $GetImages->setImageSmallURL($goldImages->imageSmallURL);
-    $GetImages->setImageLargeURL($goldImages->imageLargeURL);
+        $GetImages->setImageURL($goldImages->imageURL);
+        $GetImages->setImageSmallURL($goldImages->imageSmallURL);
+        $GetImages->setImageLargeURL($goldImages->imageLargeURL);
 
-    //print_r($goldPrice->{'tiers'}->{4}->{'bid'});
-    echo "<pre>";
-    print_r($goldImages);
-    print_r($goldPrice->tiers);
-    print_r($GetPrices);
-    print_r($GetProducts);
-    echo "</pre>";
+        //print_r($goldPrice->{'tiers'}->{4}->{'bid'});
+        echo "<pre>";
+        print_r($goldImages);
+        print_r($goldPrice->tiers);
+        print_r($GetPrices);
+        print_r($GetProducts);
+        echo "</pre>";
 }
 /*
 "product": {
