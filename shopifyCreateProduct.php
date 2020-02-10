@@ -9,8 +9,39 @@
 include('../vendor/phpclassic/php-shopify/lib/ShopifySDK.php');
 
 
-class shopifyCreateProduct
-{
+class shopifyCreateProduct{
+
+//    $productinfo   =  array(
+//        "title" => $title,
+//        "body_html" => $body_html,
+//        "vendor" => $vendor,
+//        "product_type" => $product_type,
+//        "tags" => $tags,
+//        "variants" = array(
+//            "title" => $vTitle,
+//            "price"=> $vPrice,
+//            "position" => 1,
+//            "fulfillment_service" => "manual",
+//            "inventory_management" => null,
+//            "option1" => "Default Title",
+//            "option2" => null,
+//            "option3" => null,
+//            "grams" => 0,
+//            "image_id" => null,
+//            "weight" => 0.0,
+//            "weight_unit" => "lb",
+//            "requires_shipping" => true,
+//            "presentment_prices" = array(
+//                    "price" => $presentmentPrice,
+//                    "currency_code" => "USD",
+//                    "amount" => "0.00"
+//            )
+//    )
+//)
+
+
+    public $url;
+    public $jsonResponse;
     public $config;
     public $title;
     public $body_html;
@@ -62,16 +93,22 @@ class shopifyCreateProduct
     public $iVariant_ids = Array();
     public $iAdmin_graphql_api_id;
 
+
     public function __construct()
     {
         $this->config = array(
-            'ShopUrl'          'greatamericangold',
-            'ApiKey'           'f228e039662e793f769db44bac35bc73',
-            'Password'         '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'
+            'ShopUrl'    =>      'greatamericangold',
+            'ApiKey'     =>      'f228e039662e793f769db44bac35bc73',
+            'Password'   =>      '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'
         );
        // PHPShopify\ShopifySDK::config($this->config);
     }
 
+    public function request(){
+        //
+
+
+    }
 
     /**
      * @return mixed
