@@ -33,6 +33,7 @@ $weight = "";
 $price = "";
 $optionName = "";
 $optionValue = "";
+$products = array();
 
 
 $params = array (
@@ -42,11 +43,11 @@ $params = array (
             'token' =>  '4103-906cd5f5ebddd4dab583e9a5ec0e414d'
 );
 
-$shopifyConfig = array(
-            'url'       =>  'https://greatamericangold.myshopify.com/',
-            'path'      =>  'admin/products/'.$products['id'].'/images.json',
-            'token'     =>  '62a23c57e44dfcafe8340d432ea37176'
-);
+//$shopifyConfig = array(
+//            'url'       =>  'https://greatamericangold.myshopify.com/',
+//            'path'      =>  'admin/products/'.$products['id'].'/images.json',
+//            'token'     =>  '62a23c57e44dfcafe8340d432ea37176'
+//);
 
 
 $config = array(
@@ -79,7 +80,7 @@ foreach($goldProducts as $goldProduct){
     $params['method'] = "GetCoinImages";
     $fiztradeGetImages   = new fiztradeGetImages($params);
     $goldImages = json_decode($fiztradeGetImages->ByCode($goldProduct->code));
-
+    var_dump($goldImages);
     foreach($goldImages as $goldImage){
         $fiztradeGetImages->buildRecord($goldImage);
     }
@@ -89,6 +90,11 @@ foreach($goldProducts as $goldProduct){
     $goldPrices = json_decode($fiztradeGetPrices->ByCode($goldProduct->code));
     $fiztradeGetPrices->buildRecord($goldPrices);
 
+    $p = $shopify->Product->get();
+    print_r($p);
+    $putArray = array('option1' => 'Yellow', 'price' => '1.00');
+    $s = $shopify->Product(4165221548095)->Variant->post($putArray);
+    print_r($s);
     $productinfo["title"] = $fiztradeGetProducts->getName();
     $productinfo["body_html"] = "<strong>".$fiztradeGetProducts->getDescription();
     $productinfo["product_type"] = $fiztradeGetProducts->getCategory();
@@ -104,6 +110,51 @@ foreach($goldProducts as $goldProduct){
     echo "<pre>";
     print_r($imageResult);
     echo "</pre>";
+
+    $shopifyConfig = array(
+        'url'       =>  'https://greatamericangold.myshopify.com/',
+        'path'      =>  'admin/products/'.$products['id'].'/variants.json',
+        'token'     =>  '62a23c57e44dfcafe8340d432ea37176'
+    );
+
+    $variant = array();
+
+    $variant["title"] = "Default title";
+    $variant["price"] = $fiztradeGetPrices->getPriceTier1();
+    $variant["fullfilment_service"] = "manual";
+    $variant["grams"] = $fiztradeGetProducts->getWeight() * 28.34;
+    $variant["inventory_policy"] = "continue";
+
+    $p = $shopify->Product->get();
+    print_r($p);
+
+//    $variants = array('option1' => 'Yellow', 'price' => '1.00');
+    $shopify->Product($products["id"])->Variant->post($variant);
+
+//    $putArray = array('option1' => 'Yellow', 'price' => '1.00');
+//    $shopify->Product(4368899801181)->Variant->post($putArray);
+
+    echo "<pre>";
+    print_r($variants);
+    echo "</pre>";
+
+    die();
+
+    //            "variants" => array(
+//                    "title" => $vTitle,
+//                    "price"=> $vPrice,
+//                    "position" => 1,
+//                    "fulfillment_service" => "manual",
+//                    "inventory_management" => null,
+//                    "option1" => "Default Title",
+//                    "option2" => null,
+//                    "option3" => null,
+//                    "grams" => 0,
+//                    "image_id" => null,
+//                    "weight" => $weight,
+//                    "weight_unit" => "oz",
+//                    "requires_shipping" => true,
+
 
 //    $token = '62a23c57e44dfcafe8340d432ea37176';
 //    $ch = curl_init("https://greatamericangold.myshopify.com/admin/products/".$products['id']."/images.json");
