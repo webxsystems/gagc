@@ -5,21 +5,27 @@
  * Date: 2/5/20
  * Time: 1:12 AM
  */
+session_start();
 
 require __DIR__ . '/vendor/autoload.php';
+//require_once(__DIR__ . '/MysqliDb.php');
 require __DIR__ . '/fiztradeGetProducts.php';
 require __DIR__ . '/fiztradeGetPrices.php';
 require __DIR__ . '/fiztradeGetImages.php';
 require __DIR__ . '/shopifyProduct.php';
 require __DIR__ . '/shopifyImage.php';
+require __DIR__ . '/config.class.php';
 
 use PHPShopify\ShopifySDK;
 
-define('GOLD', 'Gold');
-define('SILVER', 'silver');
-define('PLATINUM', 'platinum');
-define('SEP','/');
+/*
+ * setup and initialize variables
+ */
 
+printf("Setting up and initializing variables....");
+$metalType = array("Gold", "Silver", "Platinum");
+
+define('SEP','/');
 
 $variants = array();
 $title  = "";
@@ -35,6 +41,11 @@ $optionName = "";
 $optionValue = "";
 $products = array();
 
+/*
+ * fiztrade parameters array
+ */
+echo "\n";
+printf("Initializing FIZTRADE parameters array...");
 
 $params = array (
             'url'   =>  'https://connect.fiztrade.com',
@@ -43,212 +54,251 @@ $params = array (
             'token' =>  '4103-906cd5f5ebddd4dab583e9a5ec0e414d'
 );
 
-//$shopifyConfig = array(
-//            'url'       =>  'https://greatamericangold.myshopify.com/',
-//            'path'      =>  'admin/products/'.$products['id'].'/images.json',
-//            'token'     =>  '62a23c57e44dfcafe8340d432ea37176'
-//);
+/*
+ *   Shopify API auth parameters array
+ */
+echo "\n";
+printf("Initializing SHOPIFY parameters...");
 
 
 $config = array(
-    'ShopUrl'       =>  'greatamericangold.myshopify.com',
-    'ApiKey'        =>  '1b8627578b2b9d0896f7392803221e10',
-    'token'         =>  '62a23c57e44dfcafe8340d432ea37176'
+    'ShopUrl'   =>   'greatamericangold.myshopify.com/',
+    'ApiKey'    =>   '1b8627578b2b9d0896f7392803221e10',
+    'Password'  =>   '62a23c57e44dfcafe8340d432ea37176'
 );
 
-$shopify  = new ShopifySDK($config);
+/*
+ *  instantiate database object and connect
+ */
+echo "\n";
+printf("instantiate database object and connect...");
 
-//$products = $shopify->Product->post($productInfo);
+$configParms = new Config();
+$dbConfig = $configParms->get('db');
 
-//$p = $shopify->Product->get();
+parse_str(http_build_query($dbConfig));
+$db = new Mysqlidb ($host, $user, $pwd, $database);
+$appSettings = $db->getOne('appsettings');
 
-//$fiztradeGetProducts = new fiztradeGetProducts($params);
-//$fiztradeGetPrices   = new fiztradeGetPrices();
-//$fiztradeGetImages   = new fiztradeGetImages();
+parse_str(http_build_query($appSettings));
+/*
+ *   instantiate  products object & pull all fiztrade products by metal type
+ */
+echo "\n";
+printf("Instantiate products object & pull all FIZTRADE products by metal type");
 
-
-
-//  pull all fiztrade products
 
 $params['method'] = "GetProductsByMetalV2";
 $fiztradeGetProducts = new fiztradeGetProducts($params);
-$goldProducts = json_decode($fiztradeGetProducts->ByMetalType(GOLD));
+$goldProducts = json_decode($fiztradeGetProducts->ByMetalType("Gold"));
+parse_str(http_build_query($goldProducts));
+echo "<pre>";
+echo "Products\n";
+print_r($goldProducts);
+echo "</pre>";
 
-foreach($goldProducts as $goldProduct){
-    $fiztradeGetProducts->buildRecord($goldProduct);
+//echo "records processed : ".count($goldProducts)."\n";
+$i = 0;
+/*
+ * Loop through product object and get associated images & price
+ */
+echo "\n";
+printf("Loop through product object & get associated image / pricing data");
+ echo "\n";
 
-    $params['method'] = "GetCoinImages";
-    $fiztradeGetImages   = new fiztradeGetImages($params);
-    $goldImages = json_decode($fiztradeGetImages->ByCode($goldProduct->code));
-    var_dump($goldImages);
-    foreach($goldImages as $goldImage){
-        $fiztradeGetImages->buildRecord($goldImage);
+foreach($goldProducts as $goldProduct) {
+    //echo "Records Processed : " . $i . "\n";
+    if ($i++ > 2) {
+        die();
+        break;
     }
+    $fiztradeGetProducts->buildRecord($goldProduct);
+    $db->where("dg_code",$goldProduct->code);
+    $prod = $db->get("stat");
+    if($db->count > 0) {
+       var_dump($prod);
+       echo "duplicate key : " . $goldProduct->code . "\n";
+     //  break;
+    }else {
+        /*
+         * get product image(s)`
+         */
+        $params['method'] = "GetCoinImages";
 
-    $params['method'] = "GetPrices";
-    $fiztradeGetPrices   = new fiztradeGetPrices($params);
-    $goldPrices = json_decode($fiztradeGetPrices->ByCode($goldProduct->code));
-    $fiztradeGetPrices->buildRecord($goldPrices);
+        $fiztradeGetImages = new fiztradeGetImages($params);
+        $goldImages = json_decode($fiztradeGetImages->ByCode($goldProduct->code));
+        echo "<pre>";
+        echo "Images\n";
+        print_r($goldImages);
+        echo "</pre>";
+        parse_str(http_build_query($goldProducts));
 
-    $p = $shopify->Product->get();
-    print_r($p);
-    $putArray = array('option1' => 'Yellow', 'price' => '1.00');
-    $s = $shopify->Product(4165221548095)->Variant->post($putArray);
-    print_r($s);
-    $productinfo["title"] = $fiztradeGetProducts->getName();
-    $productinfo["body_html"] = "<strong>".$fiztradeGetProducts->getDescription();
-    $productinfo["product_type"] = $fiztradeGetProducts->getCategory();
-    $productinfo["published_scope"] = "web";
-    $productinfo["vendor"] = "Great American Gold";
-    $productinfo["tags"] = $fiztradeGetProducts->getCode();
-    $products = $shopify->Product->post($productinfo);
+        foreach ($goldImages as $goldImage) {
+            $fiztradeGetImages->buildRecord($goldImage);
+            //$fiztradeGetImages->setImageURL($goldImage->imageURL);
+        }
+        /*
+         * get product price(s)`
+         */
 
-//    $productImages = $shopify->Product("#".$products["id"])->Image->post($images);
-
-    $shopifyImage = new shopifyImage($shopifyConfig);
-    $imageResult = $shopifyImage->addImage($shopifyConfig);
-    echo "<pre>";
-    print_r($imageResult);
-    echo "</pre>";
-
-    $shopifyConfig = array(
-        'url'       =>  'https://greatamericangold.myshopify.com/',
-        'path'      =>  'admin/products/'.$products['id'].'/variants.json',
-        'token'     =>  '62a23c57e44dfcafe8340d432ea37176'
-    );
-
-    $variant = array();
-
-    $variant["title"] = "Default title";
-    $variant["price"] = $fiztradeGetPrices->getPriceTier1();
-    $variant["fullfilment_service"] = "manual";
-    $variant["grams"] = $fiztradeGetProducts->getWeight() * 28.34;
-    $variant["inventory_policy"] = "continue";
-
-    $p = $shopify->Product->get();
-    print_r($p);
-
-//    $variants = array('option1' => 'Yellow', 'price' => '1.00');
-    $shopify->Product($products["id"])->Variant->post($variant);
-
-//    $putArray = array('option1' => 'Yellow', 'price' => '1.00');
-//    $shopify->Product(4368899801181)->Variant->post($putArray);
-
-    echo "<pre>";
-    print_r($variants);
-    echo "</pre>";
-
-    die();
-
-    //            "variants" => array(
-//                    "title" => $vTitle,
-//                    "price"=> $vPrice,
-//                    "position" => 1,
-//                    "fulfillment_service" => "manual",
-//                    "inventory_management" => null,
-//                    "option1" => "Default Title",
-//                    "option2" => null,
-//                    "option3" => null,
-//                    "grams" => 0,
-//                    "image_id" => null,
-//                    "weight" => $weight,
-//                    "weight_unit" => "oz",
-//                    "requires_shipping" => true,
+        $params['method'] = "GetPrices";
+        $fiztradeGetPrices = new fiztradeGetPrices($params);
+        $goldPrices = json_decode($fiztradeGetPrices->ByCode($goldProduct->code));
+        echo "<pre>";
+        echo "Prices\n";
+        print_r($goldPrices);
+        echo "</pre>";
+        parse_str(http_build_query($goldPrices));
+        $fiztradeGetPrices->buildRecord($goldPrices);
 
 
-//    $token = '62a23c57e44dfcafe8340d432ea37176';
-//    $ch = curl_init("https://greatamericangold.myshopify.com/admin/products/".$products['id']."/images.json");
-//    $image = json_encode(array('image'=> array('src' => 'https://azrstgp1.blob.core.windows.net/goldimages/half_gram_igr_obv_250x250_jpg')));
-//    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-//    curl_setopt($ch, CURLOPT_POSTFIELDS, $image);
-//    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-//        "Content-Type: application/json",
-//        "X-Shopify-Access-Token: $token"
-//    ));
-//    $result = curl_exec($ch);
-//    var_dump($result);
-//    die();
+        /*
+         * build product record for shopify
+         */
+        printf("building product record for shopify product creation");
+        $productinfo["title"] = $fiztradeGetProducts->getName();
+        $productinfo["body_html"] = $fiztradeGetProducts->getDescription();
+        $productinfo["product_type"] = $fiztradeGetProducts->getCategory();
+        $productinfo["published_scope"] = "web";
+        $productinfo["vendor"] = "Great American Gold";
+        //$productinfo["tags"] = $fiztradeGetProducts->getCode();
 
-    //$vendor = "Great American Gold";
-    //$vPrice = number_format($fiztradeGetPrices->getPriceTier1(), 2, '.',',');
+        /*
+         * instantiate shopify sdk wrapper object & create shopify product
+         */
+        $shopify = new ShopifySDK($config);
+        $products = $shopify->Product->post($productinfo);
+        echo "<pre>";
+        echo "record build\n";
+        print_r($products["variants"][0]);
+        echo "</pre>";
+        parse_str(http_build_query($products["variants"][0]));
 
+        echo "id : " . $id . "\n";
+        echo "product id : " . $product_id . "\n";
+        $db_sp_id = $product_id;
+        $db_variant_id = $id;
+        $variant_id = $id;
+        //$product_id = $products["variants"][0][1];
+        //echo "\nvariants id : ".$products["variants"][0]["id"]."\n";
+
+        /*
+         * shopify configuration parameters array
+         */
+        $shopifyImageConfig = array(
+            'url' => 'https://greatamericangold.myshopify.com/',
+            'path' => 'admin/products/' . $product_id . '/images.json',
+            'token' => '62a23c57e44dfcafe8340d432ea37176'
+        );
+        /*
+         * instantiate shopify object for image transfer
+         */
+        $shopifyImage = new shopifyImage($shopifyImageConfig);
+        $imageResult = $shopifyImage->addImage($shopifyImageConfig, $fiztradeGetImages->getImageURL());
+
+        //parse_str(http_build_query($imageResult));
+        echo "<pre>";
+        echo "Image Add\n";
+        print_r($imageResult);
+        echo "</pre>";
+        $data = array(
+            'product' => array(
+                'id' => $product_id,
+                'variant' => array(
+                    'id' => $variant_id,
+                    'price' => $fiztradeGetPrices->getPriceTier1()
+                )
+            )
+        );
+
+        $apikey = $config['ApiKey'];
+        $pass = $config['Password'];
+
+        $url = "https://" . $apikey . ":" . $pass . "@greatamericangold.myshopify.com/admin/products/" . $product_id . ".json";
+
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec($curl);
+        if (curl_errno($curl)) {
+            echo "errno : " . $curl_errno($curl) . " : " . $curl_strerror($curl_errno($curl)) . "\n";
+            die();
+        }
+
+        /*
+         * store quick check data in database table
+         */
+
+
+        $dbData = array(
+            'sp_id'         => $product_id,
+            'variant1_id'   => $variant_id,
+            'dg_code'       => $goldProduct->code,
+            'activeSell'    => $isActiveSell,
+            'isAvailable'   => $availability,
+            'tier1_price'   => $fiztradeGetPrices->getPriceTier1()
+        );
+        $stat_id = $db->insert("stat", $dbData);
+
+        if ($stat_id) {
+            echo "success";
+        } else {
+            echo "failure to insert database record : " . $db->getLastError();
+        }
+
+        unset($dbData);
+
+        $dbData = array(
+            'sp_id'         =>  $product_id,
+            'dg_code'       =>  $goldProduct->code,
+            'name'          =>  $goldProduct->name,
+            'metalType'     =>  $goldProduct->metalType,
+            'description'   =>  $goldProduct->description,
+            'weight'        =>  $goldProduct->weight,
+            'category'      =>  $goldProduct->category
+        );
+        $product_id = $db->insert("product", $dbData);
+
+        if ($product_id) {
+            echo "success";
+        } else {
+            echo "failure to insert database record : " . $db->getLastError();
+        }
+
+        unset($dbData);
+
+        $dbData = array(
+            'dg_code'       =>  $fiztradeGetImages->getCode(),
+            'imageURL'      =>  $fiztradeGetImages->getImageURL(),
+            'imageSmallURL' =>  $fiztradeGetImages->getImageSmallURL()
+        );
+        $image_id = $db->insert("imageloc", $dbData);
+
+        if ($image_id) {
+            echo "success";
+        }else{
+            echo "failure to insert database record <imageLoc> : " . $db->getLastError();
+        }
+
+
+        echo "<pre>";
+        echo "Database\n";
+        print_r($stat_id);
+        echo "</pre>";
+    }
 }
 
 
-// print_r(json_decode($fiztradeGetProducts->returnJSON));
-//print_r($fiztradeGetPrices);
-//print_r($fiztradeGetImages);
-//print_r($fiztradeGetProducts);
-print_r($productinfo);
-echo "</pre>";
-//$productinfo   =  array(
-//            "title" => "",
-//            "body_html" => $body_html,
-//            "vendor" => $vendor,
-//            "product_type" => $product_type,
-//            "tags" => $tags,
-//            "variants" => array(
-//                    "title" => $vTitle,
-//                    "price"=> $vPrice,
-//                    "position" => 1,
-//                    "fulfillment_service" => "manual",
-//                    "inventory_management" => null,
-//                    "option1" => "Default Title",
-//                    "option2" => null,
-//                    "option3" => null,
-//                    "grams" => 0,
-//                    "image_id" => null,
-//                    "weight" => $weight,
-//                    "weight_unit" => "oz",
-//                    "requires_shipping" => true,
-//                    "presentment_prices" => array(
-//                            "price" => $price,
-//                            "currency_code" => "USD",
-//                            "amount" => "0.00"
-//                    )
-//           ),
-//            "options"   => array(
-//                    "name" => $optionName,
-//                    "position" => 1,
-//                    "values" => $optionValue
-//           ),
-//            $images    =>  array(),
-//            "image"     => null
-//);
-
-//$url = "https://connect.fiztrade.com";
-//$path = "";
-//$token = "4103-906cd5f5ebddd4dab583e9a5ec0e414d";
 
 
-//$goldImage = [];
-//$goldProduct =[];
-//$goldPrice = [];
-
-//        $url = "https://YOUR_API_KEY:YOUR_PASSWORD@YOUR_STORE.myshopify.com/admin/products.json";
 
 
-//$configParams = array (
-//    'Https'      =>     'https://',
-//    'ApiKey'     =>     'f228e039662e793f769db44bac35bc73',
-//    ':'          =>     ':',
-//    'Password'   =>     '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',
-//    '@'          =>     '@',
-//    'ShopUrl'    =>     'greatamericangold.myshopify.com',
-//    'Path'       =>     '/admin'
-//);
+function kickout(){
+    $target = "";
+    $args = func_get_args();
+    $format = array_shift($args);
 
-//$ShopUrl    =      "https://greatamericangold.myshopify.com',
-//
-//$keys   = array(
-//    'ApiKey'     =>     'f228e039662e793f769db44bac35bc73',
-//    ''          =>     ':',
-//    'Password'   =>     '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',
-//    'Path'       =>     '/admin'
-//);
-
-//$configParams[]  = "/products.json";
-//
-//$shopifyProduct = new shopifyProduct($configParams);
-//print_r($shopifyProduct->request());
-//die();
+    $output = "<pre>".$target."</pre>";
+    echo $output;
+}

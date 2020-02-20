@@ -24,33 +24,19 @@ class fiztradeGetPrices
     public $priceTier3;
     public $priceTier4;
 
-//
-//    function __construct()
-//    {
-//        $this->api = "4103-906cd5f5ebddd4dab583e9a5ec0e414d/";
-//        $this->token = "6b6cee771b9c96bae6687cda210a3592";
-//        $this->devServerURL = "https://connect.fiztrade.com/";
-//        $this->path = "FizServices/";
-//    }
 
     function __construct($params){
         $this->params = implode("/", $params);
     }
 
     public function ByCode($code){
-     //   $this->fullpath = "https://connect.fiztrade.com/FizServices/GetPrices/4103-906cd5f5ebddd4dab583e9a5ec0e414d/".$this->code;
-     //   $this->method = "fiztradeGetPrices";
         $this->code = "/". $code;
         $this->url = $this->params.$this->code;
         $c = curl_init($this->url);
-//        $c = curl_init("https://connect.fiztrade.com/FizServices/GetPrices/4103-906cd5f5ebddd4dab583e9a5ec0e414d/".$this->code);
         curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
-       // if(curl_error($c)){
-       //     curl_close($c);
-       //     echo "error : ".curl_strerror(curl_errno($c));
-       $this->returnJSON = curl_exec($c);
-       curl_close($c);
-       return $this->returnJSON;
+        $this->returnJSON = curl_exec($c);
+        curl_close($c);
+        return $this->returnJSON;
     }
 
     public function buildRecord($goldPrice){
@@ -60,6 +46,20 @@ class fiztradeGetPrices
         self::setPriceTier2(number_format($goldPrice->{'tiers'}->{2}->{'ask'}), 2, '.','');
         self::setPriceTier3(number_format($goldPrice->{'tiers'}->{3}->{'ask'}), 2, '.','');
         self::setPriceTier4(number_format($goldPrice->{'tiers'}->{4}->{'ask'}), 2, '.','');
+    }
+
+    public function getPrice($code){
+        $this->code = "/" . $code;
+        $this->url = $this->params . $this->code;
+        $c = curl_init($this->url);
+        curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
+        $this->returnJSON = curl_exec($c);
+        if(curl_errno($c)){
+            echo "errno : ". curl_errno($c)." : ".curl_strerror(curl_errno($c))."\n";
+            return "error";
+        }
+        curl_close($c);
+        return $this->returnJSON;
     }
 
     /**

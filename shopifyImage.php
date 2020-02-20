@@ -14,26 +14,29 @@ class shopifyImage
     public $result;
     public $productID;
     public $target;
+    public $imageURL;
+    public $returnJSON;
 
     function __construct($params){
         $this->params = implode("/", $params);
         //echo $this->params."\n\n";
     }
 
-    public function addImage($shopifyConfig){
+    public function addImage($shopifyConfig, $image){
         //$token = '62a23c57e44dfcafe8340d432ea37176';
         $this->token = $shopifyConfig['token'];
         $this->target = $shopifyConfig['url'].$shopifyConfig['path'];
-        $this->ch = curl_init($this->target);
+        $ch = curl_init($this->target);
 
         //$ch = curl_init("https://greatamericangold.myshopify.com/admin/products/".$products['id']."/images.json");
         //$image = json_encode(array('image'=> array('src' => 'https://azrstgp1.blob.core.windows.net/goldimages/half_gram_igr_obv_250x250_jpg')));
-        $this->image = json_encode(array('image'=> array('src' => self::getImageURL())));
+        //echo "Image : ". $image."\n\n";
+        $this->image = json_encode(array('image'=> array('src' => $image)));
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
         curl_setopt($ch, CURLOPT_POSTFIELDS, $this->image);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
         "Content-Type: application/json",
-        "X-Shopify-Access-Token: $this->token"
+        "X-Shopify-Access-Token: ".$this->token
         ));
         $result = curl_exec($ch);
         return $result;
@@ -54,7 +57,7 @@ class shopifyImage
     public function buildRecord($goldImage){
 
         self::setImageURL($goldImage->imageURL);
-
+       // echo "imageURL : ".$goldImage->imageURL."\n\n";
         //  self::setImageSmallURL($goldImage->imageSmallURL);
         //  self::setImageObverseURL($goldImage->imageLargeObverseURL);
         //  self::setImageReverseURL($goldImage->imageLargeReverseURL);

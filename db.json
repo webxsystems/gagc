@@ -1,0 +1,17 @@
+{
+      "db": {
+            "host"      :     "localhost",
+            "database"  :     "fsync",
+            "user"      :     "fsync",
+            "pwd"       :     "1gKP6lbT9T2M3J4X",
+            "type"      :     "pdo_mysql"
+            },
+
+      "pricing":{
+            "base"      :     "12.0",
+            "tier1"     :     ".02",
+            "tier2"     :     ".04",
+            "tier3"     :     ".05"
+            }
+
+}

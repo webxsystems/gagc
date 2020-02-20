@@ -30,20 +30,11 @@ class fiztradeGetProducts
 
     function __construct($params){
         $this->params = implode("/", $params);
-        //echo $this->params."\n\n";
     }
 
     public function ByMetalType($type){
-     //   $this->fullpath = "https://connect.fiztrade.com/FizServices/GetProductsByMetalV2/4103-906cd5f5ebddd4dab583e9a5ec0e414d/Gold";
-     //   $this->url = "https://connect.fiztrade.com/";
-    //    $this->path = "FizServices";
-        //$this->method = "GetProductsByMetalV2";
         $this->type = "/".$type;
         $this->url = $this->params.$this->type;
-        echo $this->url."\n\n";
-        //$this->url = $this->devServerURL.$this->path.$this->api.$this->type;
-        //echo $this->url."<br>";
-        //$c = curl_init("https://connect.fiztrade.com/FizServices/GetProductsByMetalV2/4103-906cd5f5ebddd4dab583e9a5ec0e414d/Gold");
         $c = curl_init($this->url);
         curl_setopt($c, CURLOPT_RETURNTRANSFER, true);
         $this->returnJSON = curl_exec($c);

@@ -39,6 +39,22 @@ class shopifyPrice
         return $this->returnJSON;
     }
 
+    public function addPrice($url){
+       //$url = "https://{$apikey}:".$password."@greatamericangold.myshopify.com/admin/products/".$product_id.".json";
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT");
+        curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+        $result = curl_exec ($curl);
+        if(curl_errno($curl)){
+            echo "errno : ".$curl_errno($curl)." : ".$curl_strerror($curl_errno($curl))."\n";
+            die();
+        }
+        curl_close($curl);
+
+        $result = json_decode($result);
+    }
+
     public function buildRecord($goldPrice){
         self::setAvailability($goldPrice->availability);
         self::setIsActiveSell($goldPrice->isActiveSell);

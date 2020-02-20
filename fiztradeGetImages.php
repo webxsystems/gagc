@@ -23,16 +23,8 @@ class fiztradeGetImages
     public $imageReverseURL;
     public $imageSmallURL;
 
-//    function __construct()
-//    {
-//        $this->api = "4103-906cd5f5ebddd4dab583e9a5ec0e414d/";
-//        $this->devServerURL = "https://connect.fiztrade.com/";
-//        $this->path = "FizServices/";
-//    }
-
     function __construct($params){
         $this->params = implode("/", $params);
-        //echo $this->params."\n\n";
     }
 
     public function ByCode($code){
@@ -49,12 +41,27 @@ class fiztradeGetImages
     }
 
     public function buildRecord($goldImage){
-
+        self::setCode($goldImage->code);
         self::setImageURL($goldImage->imageURL);
-
-      //  self::setImageSmallURL($goldImage->imageSmallURL);
+        self::setImageSmallURL($goldImage->imageSmallURL);
       //  self::setImageObverseURL($goldImage->imageLargeObverseURL);
       //  self::setImageReverseURL($goldImage->imageLargeReverseURL);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * @param mixed $code
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
     }
 
     /**
