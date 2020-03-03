@@ -295,7 +295,9 @@ background: url('../img/AjaxLoader.gif') no-repeat center center #aebab6;
 	margin-bottom: 20px;
 }
 
-
+.progress{
+	background-color:#040f25 !important;
+}
 
 /* Responsive Stuff */
 
@@ -408,6 +410,7 @@ NO MORE TABLES!! ;)
 		content: "Description:";
 		font-weight: bold;
 	}
+
 }
 
 

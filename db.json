@@ -1,17 +1,23 @@
 {
       "db": {
-            "host"      :     "localhost",
-            "database"  :     "fsync",
-            "user"      :     "fsync",
-            "pwd"       :     "1gKP6lbT9T2M3J4X",
-            "type"      :     "pdo_mysql"
+            "host"                :     "localhost",
+            "database"            :     "fsync",
+            "user"                :     "fsync",
+            "pwd"                 :     "1gKP6lbT9T2M3J4X",
+            "type"                :     "pdo_mysql"
             },
 
       "pricing":{
-            "base"      :     "12.0",
-            "tier1"     :     ".02",
-            "tier2"     :     ".04",
-            "tier3"     :     ".05"
-            }
+            "basePercentage"      :     12,
+            "tier1Percentage"     :     8,
+            "tier2Percentage"     :     6,
+            "tier3Percentage"     :     4,
+            "tier4Percentage"     :     2
+      },
+      "shopifyConfig": {
+            "ShopUrl"             :   "greatamericangold.myshopify.com/",
+            "ApiKey"              :   "1b8627578b2b9d0896f7392803221e10",
+            "Password"            :   "62a23c57e44dfcafe8340d432ea37176"
+      }
 
 }

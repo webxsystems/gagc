@@ -8,11 +8,28 @@
 
 session_start();
 
+if(!isset($_SESSION['authenticated'])){
+    header('Location: login.php');
+    exit;
+}
+
+$userObject = unserialize($_SESSION['userObject']);
+if(isset($_SESSION['user_realname'])) {
+    $realname = $_SESSION['user_realname'];
+}
 //require_once(__DIR__ . '/MysqliDb.php');
+/*
 require '../vendor/autoload.php';
 require '../config.class.php';
 require '../fiztradeGetPrices.php';
 require '../shopifyPrice.php';
+*/
+
+require '/opt/bitnami/apache2/htdocs/repo/vendor/autoload.php';
+require '/opt/bitnami/apache2/htdocs/repo/config.class.php';
+require '/opt/bitnami/apache2/htdocs/repo/fiztradeGetPrices.php';
+require '/opt/bitnami/apache2/htdocs/repo/shopifyPrice.php';
+
 
 use PHPShopify\ShopifySDK;
 
@@ -23,9 +40,30 @@ parse_str(http_build_query($dbConfig));
 $db = new Mysqlidb ($host, $user, $pwd, $database);
 
 $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = stat.dg_code JOIN imageloc on stat.dg_code = imageloc.dg_code');
-//foreach($products as $product){
-//    print_r($product);
-//}
+
+$q = "SELECT COUNT(*) FROM `product` WHERE metalType = ";
+$metalType = "'Gold'";
+$result = $db->rawQuery($q.$metalType);
+$goldProductCount = $result[0]["COUNT(*)"];
+$metalType = "'Silver'";
+$result = $db->rawQuery($q.$metalType);
+$silverProductCount = $result[0]["COUNT(*)"];
+$metalType = "'Platinum'";
+$result = $db->rawQuery($q.$metalType);
+$platinumProductCount = $result[0]["COUNT(*)"];
+$metalType = "'Palladium'";
+$result = $db->rawQuery($q.$metalType);
+$palladiumProductCount = $result[0]["COUNT(*)"];
+
+$totalProducts = $goldProductCount+$silverProductCount+$platinumProductCount+$palladiumProductCount;
+$goldPercentage = get_percentage($totalProducts, $goldProductCount);
+$silverPercentage = get_percentage($totalProducts, $silverProductCount);
+$platinumPercentage = get_percentage($totalProducts, $platinumProductCount);
+$palladiumPercentage = get_percentage($totalProducts, $palladiumProductCount);
+
+$percentageConfig = $config->get('pricing');
+@parse_str(http_build_query($percentageConfig));
+
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -101,13 +139,13 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
     <div class="left-sidebar-pro">
         <nav id="sidebar" class="">
             <div class="sidebar-header">
-                <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>
-                <strong><img src="img/logo/logosn.png" alt="" /></strong>
+                <a href="index.html"><img  style="width:175px;" class="main-logo" src="img/logo/logo.png" alt="" /></a>
+                <strong><img style="width:175px;" src="img/logo/logosn.png" alt="" /></strong>
             </div>
 			<div class="nalika-profile">
 				<div class="profile-dtl">
 					<a href="#"><img src="img/notification/4.jpg" alt="" /></a>
-					<h2>Lakian <span class="min-dtn">Das</span></h2>
+					<h2 style="color:#FFD700;">Great American <span class="min-dtn"><em>Gold</em></span></h2>
 				</div>
 				<div class="profile-social-dtl">
 					<ul class="dtl-social">
@@ -123,30 +161,33 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
                         <li class="active">
                             <a class="has-arrow" href="index.html">
 								   <i class="icon nalika-home icon-wrap"></i>
-								   <span class="mini-click-non">Ecommerce</span>
+								   <span >Dashboard</span>
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
-                                <li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Dashboard v.1</span></a></li>
+                                <!--<li><a title="Dashboard v.1" href="index.html"><span class="mini-sub-pro">Dashboard v.1</span></a></li>
                                 <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>
-                                <li><a title="Dashboard v.3" href="index-2.html"> <span class="mini-sub-pro">Dashboard v.3</span></a></li>
-                                <li><a title="Product List" href="product-list.html"><span class="mini-sub-pro">Product List</span></a></li>
-                                <li><a title="Product Edit" href="product-edit.html"><span class="mini-sub-pro">Product Edit</span></a></li>
-                                <li><a title="Product Detail" href="product-detail.html"><span class="mini-sub-pro">Product Detail</span></a></li>
-                                <li><a title="Product Cart" href="product-cart.html"><span class="mini-sub-pro">Product Cart</span></a></li>
-                                <li><a title="Product Payment" href="product-payment.html"><span class="mini-sub-pro">Product Payment</span></a></li>
-                                <li><a title="Analytics" href="analytics.html"><span class="mini-sub-pro">Analytics</span></a></li>
-                                <li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Widgets</span></a></li>
+                                <li><a title="Dashboard v.3" href="index-2.html"> <span class="mini-sub-pro">Dashboard v.3</span></a></li>-->
+                                <li><a title="Product List" href="index.php"><span class="mini-sub-pro">Product List</span></a></li>
+<!--                                <li><a title="Product Edit" href="#"><span class="mini-sub-pro">Product Edit</span></a></li>-->
+<!--                                <li><a title="Product Detail" href="#"><span class="mini-sub-pro">Product Detail</span></a></li>-->
+                                <li><a title="Sync:Gold" href="#"><span class="mainGold">Sync:Gold</span></a></li>
+                                <li><a title="Sync:Silver" href="#"><span class="mainSilver">Sync:Silver</span></a></li>
+                                <li><a title="Sync:Platinum" href="#"><span class="mainPlatinum">Sync:Platinum</span></a></li>
+                                <li><a title="Sync:Palladium" href="#"><span class="mainPalladium">Sync:Palladium</span></a></li>
+                                <li class="main-clear"><a title="Clear Data" href="#"><span>Clear Data</span></a></li>
+                                <li><a title="Job Schedule" href="../job-schedule.php"><span class="mini-sub-pro">Job Schedule</span></a></li>
+                                <!--<li><a title="Widgets" href="widgets.html"><span class="mini-sub-pro">Widgets</span></a></li>-->
                             </ul>
                         </li>
-                        <li>
+                        <!--<li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-mail icon-wrap"></i> <span class="mini-click-non">Mailbox</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Inbox" href="mailbox.html"><span class="mini-sub-pro">Inbox</span></a></li>
                                 <li><a title="View Mail" href="mailbox-view.html"><span class="mini-sub-pro">View Mail</span></a></li>
                                 <li><a title="Compose Mail" href="mailbox-compose.html"><span class="mini-sub-pro">Compose Mail</span></a></li>
                             </ul>
-                        </li>
-                        <li>
+                        </li>-->
+                        <!--<li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-diamond icon-wrap"></i> <span class="mini-click-non">Interface</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Google Map" href="google-map.html"><span class="mini-sub-pro">Google Map</span></a></li>
@@ -158,8 +199,8 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
                                 <li><a title="Preloader" href="preloader.html"><span class="mini-sub-pro">Preloader</span></a></li>
                                 <li><a title="Images Cropper" href="images-cropper.html"><span class="mini-sub-pro">Images Cropper</span></a></li>
                             </ul>
-                        </li>
-                        <li>
+                        </li>-->
+                        <!--<li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-pie-chart icon-wrap"></i> <span class="mini-click-non">Miscellaneous</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="File Manager" href="file-manager.html"><span class="mini-sub-pro">File Manager</span></a></li>
@@ -168,8 +209,8 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
                                 <li><a title="404 Page" href="404.html"><span class="mini-sub-pro">404 Page</span></a></li>
                                 <li><a title="500 Page" href="500.html"><span class="mini-sub-pro">500 Page</span></a></li>
                             </ul>
-                        </li>
-                        <li>
+                        </li>-->
+                        <!--<li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-bar-chart icon-wrap"></i> <span class="mini-click-non">Charts</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Bar Charts" href="bar-charts.html"><span class="mini-sub-pro">Bar Charts</span></a></li>
@@ -180,8 +221,8 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
                                 <li><a title="Sparkline Charts" href="sparkline.html"><span class="mini-sub-pro">Sparkline Charts</span></a></li>
                                 <li><a title="Peity Charts" href="peity.html"><span class="mini-sub-pro">Peity Charts</span></a></li>
                             </ul>
-                        </li>
-                        <li>
+                        </li>-->
+                       <!-- <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-table icon-wrap"></i> <span class="mini-click-non">Data Tables</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Peity Charts" href="static-table.html"><span class="mini-sub-pro">Static Table</span></a></li>
@@ -198,8 +239,8 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
                                 <li><a title="Text Editor" href="tinymc.html"><span class="mini-sub-pro">Text Editor</span></a></li>
                                 <li><a title="Dual List Box" href="dual-list-box.html"><span class="mini-sub-pro">Dual List Box</span></a></li>
                             </ul>
-                        </li>
-                        <li>
+                        </li>-->
+                       <!-- <li>
                             <a class="has-arrow" href="mailbox.html" aria-expanded="false"><i class="icon nalika-smartphone-call icon-wrap"></i> <span class="mini-click-non">App views</span></a>
                             <ul class="submenu-angle" aria-expanded="false">
                                 <li><a title="Notifications" href="notifications.html"><span class="mini-sub-pro">Notifications</span></a></li>
@@ -218,7 +259,7 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
                                 <li><a title="Lock" href="lock.html"><span class="mini-sub-pro">Lock</span></a></li>
                                 <li><a title="Password Recovery" href="password-recovery.html"><span class="mini-sub-pro">Password Recovery</span></a></li>
                             </ul>
-                        </li>
+                        </li>-->
                     </ul>
                 </nav>
             </div>
@@ -243,11 +284,11 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
                             <div class="header-top-wraper">
                                 <div class="row">
                                     <div class="col-lg-1 col-md-0 col-sm-1 col-xs-12">
-                                        <div class="menu-switcher-pro">
-                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">
-													<i class="icon nalika-menu-task"></i>
-												</button>
-                                        </div>
+<!--                                        <div class="menu-switcher-pro">-->
+<!--                                            <button type="button" id="sidebarCollapse" class="btn bar-button-pro header-drl-controller-btn btn-info navbar-btn">-->
+<!--													<i class="icon nalika-menu-task"></i>-->
+<!--												</button>-->
+<!--                                        </div>-->
                                     </div>
                                     <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                                         <div class="header-top-menu tabl-d-n hd-search-rp">
@@ -949,14 +990,16 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
 												<i class="icon nalika-home"></i>
 											</div>
 											<div class="breadcomb-ctn">
-												<h2>Dashboard One</h2>
-												<p>Welcome to Nalika <span class="bread-ntd">Admin Template</span></p>
+												<h2>Dashboard :: Main</h2>
+												<p>Hello <span class="bread-ntd" style="color:#FFD700;"><em><?php if(isset($realname)){ echo $realname; };?></em></span></p>
 											</div>
 										</div>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                         <div class="breadcomb-report">
-											<button data-toggle="tooltip" data-placement="left" title="Download Report" class="btn"><i class="icon nalika-download"></i></button>
+											<button data-toggle="tooltip" data-placement="left" title="Signout" id="signout" class="btn">
+                                                <i class="icon nalika-download"></i><a style="color:#ffffff;font-size:16px;margin-left:10px;" href="logout.php">Signout</a>
+                                            </button>
 										</div>
                                     </div>
                                 </div>
@@ -967,7 +1010,7 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
             </div>
         </div>
         <div class="section-admin container-fluid">
-            <div class="row admin text-center">
+            <div class="row admin text-center" style="margin-bottom: 30px;">
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
@@ -975,14 +1018,17 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
                                 <h4 class="text-left text-uppercase"><b style="color:#FFD700;">Gold</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="col-xs-3 mar-bot-15 text-left">
-                                        <label class="label bg-gold">60% <i class="fa fa-level-up" aria-hidden="true"></i></label>
+                                        <label class="label bg-gold">
+                                            <?=$goldPercentage?>%
+<!--                                            <i class="fa fa-level-up" aria-hidden="true"></i>-->
+                                        </label>
                                     </div>
                                     <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin">10,000</h2>
+                                        <h2 class="text-right no-margin"><?=$goldProductCount?></h2>
                                     </div>
                                 </div>
                                 <div class="progress progress-mini">
-                                    <div style="width: 78%;" class="progress-bar bg-gold"></div>
+                                    <div style="width:<?=$goldPercentage?>%" class="progress-bar bg-gold"></div>
                                 </div>
                             </div>
                         </div>
@@ -991,14 +1037,17 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
                                 <h4 class="text-left text-uppercase"><b style="color:#C0C0C0;">Silver</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="text-left col-xs-3 mar-bot-15">
-                                        <label class="label bg-silver">15% <i class="fa fa-level-down" aria-hidden="true"></i></label>
+                                        <label class="label bg-silver">
+                                            <?=$silverPercentage?>%
+<!--                                            <i class="fa fa-level-down" aria-hidden="true"></i>-->
+                                        </label>
                                     </div>
                                     <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin">5,000</h2>
+                                        <h2 class="text-right no-margin"><?=$silverProductCount?></h2>
                                     </div>
                                 </div>
                                 <div class="progress progress-mini">
-                                    <div style="width: 38%;" class="progress-bar progress-bar-danger bg-silver"></div>
+                                    <div style="width:<?=$silverPercentage?>%" class="progress-bar progress-bar-danger bg-silver"></div>
                                 </div>
                             </div>
                         </div>
@@ -1007,30 +1056,35 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
                                 <h4 class="text-left text-uppercase"><b style="color:#E5E4E2;">Platinum</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="text-left col-xs-3 mar-bot-15">
-                                        <label class="label bg-platinum">50% <i class="fa fa-level-up" aria-hidden="true"></i></label>
+                                        <label class="label bg-platinum">
+                                            <?=$platinumPercentage?>%
+<!--                                            <i class="fa fa-level-up" aria-hidden="true"></i></label>-->
                                     </div>
                                     <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin">$70,000</h2>
+                                        <h2 class="text-right no-margin"><?=$platinumProductCount?></h2>
                                     </div>
                                 </div>
                                 <div class="progress progress-mini">
-                                    <div style="width: 60%;" class="progress-bar bg-platinum"></div>
+                                    <div style="width:<?=$platinumPercentage?>%" class="progress-bar bg-platinum"></div>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                             <div class="admin-content analysis-progrebar-ctn res-mg-t-30">
-                                <h4 class="text-left text-uppercase"><b style="color:#6F6A75;">Paladium</b></h4>
+                                <h4 class="text-left text-uppercase"><b style="color:#6F6A75;">Palladium</b></h4>
                                 <div class="row vertical-center-box vertical-center-box-tablet">
                                     <div class="text-left col-xs-3 mar-bot-15">
-                                        <label class="label bg-palladium">80% <i class="fa fa-level-up" aria-hidden="true"></i></label>
+                                        <label class="label bg-palladium">
+                                            <?=$palladiumPercentage?>%
+<!--                                            <i class="fa fa-level-up" aria-hidden="true"></i>-->
+                                        </label>
                                     </div>
                                     <div class="col-xs-9 cus-gh-hd-pro">
-                                        <h2 class="text-right no-margin">$100,000</h2>
+                                        <h2 class="text-right no-margin"><?=$palladiumProductCount?></h2>
                                     </div>
                                 </div>
                                 <div class="progress progress-mini">
-                                    <div style="width: 60%;" class="progress-bar bg-palladium"></div>
+                                    <div style="width:<?=$palladiumPercentage?>%" class="progress-bar bg-palladium"></div>
                                 </div>
                             </div>
                         </div>
@@ -1048,134 +1102,51 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
 <!--                                <a href="product-edit.html">Add Product</a>-->
                             </div>
                             <table>
-                                <tr>
+                                <tr style="background-color:#040f25;">
                                     <th>Image</th>
                                     <th>Product</th>
                                     <th>Availability</th>
-                                    <th>Is Active Sell</th>
+                                    <th>Active</th>
                                     <th>Category</th>
-                                    <th>Price</th>
-                                    <th>T1&nbsp;&nbsp;&nbsp;&nbsp;T2&nbsp;&nbsp;&nbsp;&nbsp;T3&nbsp;&nbsp;&nbsp;&nbsp;T4&nbsp;&nbsp;&nbsp;&nbsp;</&nbsp;th>
+                                    <th>Weight</th>
+                                    <th>Original</th>
+                                    <th>Price [<span style="color:#FFD700;"><?=$basePercentage?>%</span>]</th>
+                                    <th>T1 [<span style="color:#FFD700;"><?=$tier1Percentage?>%</span>]</th>
+                                    <th>T2 [<span style="color:#FFD700;"><?=$tier2Percentage?>%</span>]</th>
+                                    <th>T3 [<span style="color:#FFD700;"><?=$tier3Percentage?>%</span>]</th>
 
-                                    <th>Edit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete</th>
+                                    <!-- <th>Edit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Delete</th>-->
 
                                 </tr>
                                 <?php
                                     foreach($products as $product) {
-                                        echo "<tr>";
-                                        echo "<td><img src='" . $product['imageSmallURL'] . "' alt='' /></td>";
-                                        echo "<td>" . $product['name'] . "</td>";
-                                        echo "<td>" . $product['isAvailable'] . "</td>";
-                                        echo "<td>" . $product['activeSell'] . "</td>";
-                                        echo "<td>" . $product['category'] . "</td>";
-                                        echo "<td>" . $product['tier1_price'] . "</td>";
-                                        echo "<td>14%&nbsp;&nbsp;&nbsp;12%&nbsp;&nbsp;&nbsp;8%&nbsp;&nbsp;&nbsp;4%</td>";
-                                        echo "<td>";
-                                        echo "<button data-toggle='tooltip' title='Edit' class='pd-setting-ed'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></button>";
-                                        echo "<button data-toggle='tooltip' title='Trash' class='pd-setting-ed'><i class='fa fa-trash-o' aria-hidden='true'></i></button>";
-                                        echo "</td>";
-                                        echo "</tr>";
+                                   //     if($product['activeSell'] == "Y") {
+                                            echo "<tr>";
+                                            echo "<td><img src='" . $product['imageSmallURL'] . "' alt='' /></td>";
+                                            echo "<td>" . $product['name'] . "</td>";
+                                            echo "<td>" . $product['isAvailable'] . "</td>";
+                                            echo "<td>" . $product['activeSell'] . "</td>";
+                                            echo "<td>" . $product['category'] . "</td>";
+                                            echo "<td>" . $product['weight'] . "</td>";
+                                            echo "<td>" . "&#36;" . $product['origPrice'] . "</td>";
+                                            echo "<td>" . "&#36;" . $product['basePrice'] . "</td>";
+                                            echo "<td>" . $product['tier1_price'] . "</td>";
+                                            echo "<td>" . $product['tier2_price'] . "</td>";
+                                            echo "<td>" . $product['tier3_price'] . "</td>";
+                                            echo "</tr>";
+                                    //    }
                                     }
                                 ?>
-                              <!--  <tr>
-                                    <td><img src="img/new-product/5-small.jpg" alt="" /></td>
-                                    <td>Product Title 1</td>
-                                    <td>
-                                        <button class="pd-setting">Active</button>
-                                    </td>
-                                    <td>50</td>
-                                    <td>$750</td>
-                                    <td>Out Of Stock</td>
-                                    <td>14%&nbsp;&nbsp;&nbsp;12%&nbsp;&nbsp;&nbsp;8%&nbsp;&nbsp;&nbsp;4%</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="img/new-product/6-small.jpg" alt="" /></td>
-                                    <td>Product Title 2</td>
-                                    <td>
-                                        <button class="ps-setting">Paused</button>
-                                    </td>
-                                    <td>60</td>
-                                    <td>$1020</td>
-                                    <td>In Stock</td>
-                                    <td>$17</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="img/new-product/7-small.jpg" alt="" /></td>
-                                    <td>Product Title 3</td>
-                                    <td>
-                                        <button class="ds-setting">Disabled</button>
-                                    </td>
-                                    <td>70</td>
-                                    <td>$1050</td>
-                                    <td>Low Stock</td>
-                                    <td>$15</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="img/new-product/5-small.jpg" alt="" /></td>
-                                    <td>Product Title 4</td>
-                                    <td>
-                                        <button class="pd-setting">Active</button>
-                                    </td>
-                                    <td>120</td>
-                                    <td>$1440</td>
-                                    <td>In Stock</td>
-                                    <td>$12</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="img/new-product/6-small.jpg" alt="" /></td>
-                                    <td>Product Title 5</td>
-                                    <td>
-                                        <button class="pd-setting">Active</button>
-                                    </td>
-                                    <td>30</td>
-                                    <td>$540</td>
-                                    <td>Out Of Stock</td>
-                                    <td>$18</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><img src="img/new-product/7-small.jpg" alt="" /></td>
-                                    <td>Product Title 6</td>
-                                    <td>
-                                        <button class="ps-setting">Paused</button>
-                                    </td>
-                                    <td>400</td>
-                                    <td>$4000</td>
-                                    <td>In Stock</td>
-                                    <td>$10</td>
-                                    <td>
-                                        <button data-toggle="tooltip" title="Edit" class="pd-setting-ed"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
-                                        <button data-toggle="tooltip" title="Trash" class="pd-setting-ed"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
-                                    </td>
-                                </tr>-->
+
                             </table>
                             <div class="custom-pagination">
-								<ul class="pagination">
+								<!--<ul class="pagination">
 									<li class="page-item"><a class="page-link" href="#">Previous</a></li>
 									<li class="page-item"><a class="page-link" href="#">1</a></li>
 									<li class="page-item"><a class="page-link" href="#">2</a></li>
 									<li class="page-item"><a class="page-link" href="#">3</a></li>
 									<li class="page-item"><a class="page-link" href="#">Next</a></li>
-								</ul>
+								</ul>-->
                             </div>
                         </div>
                     </div>
@@ -1570,28 +1541,30 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
                 </div>
             </div>
         </div> -->
-        <div class="calender-area mg-tb-30">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="calender-inner">
-                            <div id='calendar'></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer-copy-right">
-                            <p>Copyright © 2018 <a href="https://colorlib.com/wp/templates/">Colorlib</a> All rights reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<!--        <div class="calender-area mg-tb-30">-->
+<!--            <div class="container-fluid">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-12">-->
+<!--                        <div class="calender-inner">-->
+<!--                            <div id='calendar'></div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="footer-copyright-area">-->
+<!--            <div class="container-fluid">-->
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-12">-->
+<!--                        <div class="footer-copy-right">-->
+<!--                            <p>Copyright © 2020 <a href="https://www.webxsys.com/">WEBXSYS</a> All rights reserved.</p>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <?php include('footer.php'); ?>
     </div>
     <!-- jquery
 		============================================ -->
@@ -1649,3 +1622,16 @@ $products = $db->rawQuery('SELECT * FROM product JOIN stat on product.dg_code = 
 </body>
 
 </html>
+
+<?php
+
+function get_percentage($total, $number){
+    if ($total > 0){
+        $perc = round($number / ($total / 100), 2);
+        return $perc;
+    }else{
+        return 0;
+    }
+}
+
+?>
