@@ -6,8 +6,12 @@
  * Time: 12:24 PM
  */
 
-require '/opt/bitnami/apache2/htdocs/repo/vendor/autoload.php';
-require '/opt/bitnami/apache2/htdocs/repo/config.class.php';
+//require '/opt/bitnami/apache2/htdocs/repo/vendor/autoload.php';
+//require '/opt/bitnami/apache2/htdocs/repo/config.class.php';
+
+require __DIR__ . '/vendor/autoload.php';
+require __DIR__ . '/config.class.php';
+
 
 $configParms = new Config();
 $dbConfig = $configParms->get('db');

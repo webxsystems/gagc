@@ -56,7 +56,7 @@ $data = array(
         'id' => $product['sp_id'],
         'variant' => array(
             'id' => $product['variant1_id'],
-            'price' => $bPrice
+            'aprice' => $bPrice
         )
     )
 );

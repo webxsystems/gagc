@@ -3,7 +3,7 @@
             "host"                :     "localhost",
             "database"            :     "fsync",
             "user"                :     "fsync",
-            "pwd"                 :     "1gKP6lbT9T2M3J4X",
+            "pwd"                 :     "fsync",
             "type"                :     "pdo_mysql"
             },
 

@@ -56,8 +56,8 @@ class fiztradeGetPrices
     }
 
     public function buildRecord($goldPrice){
-        //self::setAvailability($goldPrice->availability);
-        //self::setIsActiveSell($goldPrice->isActiveSell);
+        self::setAvailability($goldPrice->availability);
+        self::setIsActiveSell($goldPrice->isActiveSell);
 
         self::setPriceTier1($goldPrice);
         self::setPriceTier2($goldPrice);

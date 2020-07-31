@@ -18,18 +18,18 @@ if(isset($_SESSION['user_realname'])) {
     $realname = $_SESSION['user_realname'];
 }
 //require_once(__DIR__ . '/MysqliDb.php');
-/*
+
 require '../vendor/autoload.php';
 require '../config.class.php';
 require '../fiztradeGetPrices.php';
 require '../shopifyPrice.php';
-*/
 
+/*
 require '/opt/bitnami/apache2/htdocs/repo/vendor/autoload.php';
 require '/opt/bitnami/apache2/htdocs/repo/config.class.php';
 require '/opt/bitnami/apache2/htdocs/repo/fiztradeGetPrices.php';
 require '/opt/bitnami/apache2/htdocs/repo/shopifyPrice.php';
-
+*/
 
 use PHPShopify\ShopifySDK;
 
@@ -165,10 +165,10 @@ $percentageConfig = $config->get('pricing');
 								</a>
                             <ul class="submenu-angle" aria-expanded="true">
                                 <li><a title="Product List" href="index.php"><span class="mini-sub-pro">Product List</span></a></li>
-                                <li><a title="Sync:Gold" href="#"><span class="mainGold">Sync:Gold</span></a></li>
-                                <li><a title="Sync:Silver" href="#"><span class="mainSilver">Sync:Silver</span></a></li>
-                                <li><a title="Sync:Platinum" href="#"><span class="mainPlatinum">Sync:Platinum</span></a></li>
-                                <li><a title="Sync:Palladium" href="#"><span class="mainPalladium">Sync:Palladium</span></a></li>
+                                <li><a title="Sync:Gold" href="../mainGold.php"><span class="mainGold">Sync:Gold</span></a></li>
+                                <li><a title="Sync:Silver" href="../mainSilver.php"><span class="mainSilver">Sync:Silver</span></a></li>
+                                <li><a title="Sync:Platinum" href="../mainPlatinum.php"><span class="mainPlatinum">Sync:Platinum</span></a></li>
+                                <li><a title="Sync:Palladium" href="../mainPalladium.php"><span class="mainPalladium">Sync:Palladium</span></a></li>
                                 <li class="main-clear"><a title="Clear Data" href="#"><span>Clear Data</span></a></li>
                                 <li><a title="Job Schedule" href="../job-schedule.php"><span class="mini-sub-pro">Job Schedule</span></a></li>
                             </ul>

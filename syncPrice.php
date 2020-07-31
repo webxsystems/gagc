@@ -1,4 +1,4 @@
-<?php
+ <?php
 /**
  * Created by PhpStorm.
  * User: goldenboy
@@ -20,11 +20,11 @@ if(isset($_SESSION['user_realname'])) {
 */
 
 echo "\n[START RUN] ".date("F j, Y, g:i a")." ";
-
-require '/opt/bitnami/apache2/htdocs/repo/vendor/autoload.php';
-require '/opt/bitnami/apache2/htdocs/repo/config.class.php';
-require '/opt/bitnami/apache2/htdocs/repo/price.class.php';
-require '/opt/bitnami/apache2/htdocs/repo/shopifyPrice.php';
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
+require 'vendor/autoload.php';
+require 'config.class.php';
+require 'price.class.php';
+require 'shopifyPrice.php';
 
 
 use PHPShopify\ShopifySDK;
