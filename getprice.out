@@ -1,0 +1,1541 @@
+<pre>Array
+(
+    [id] => 764
+    [sp_id] => 4594617221252
+    [variant1_id] => 32365586808964
+    [dg_code] => .1SRDBUFF
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 486.4
+    [lastUpdate] => 2020-02-24 14:33:36
+)
+</pre><pre>stdClass Object
+(
+    [code] => .1SRDBUFF
+    [isActiveBuy] => Y
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [spread] => 0.52
+                    [melt] => 0.1
+                    [bidPercise] => 1.951
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [askPercise] => 2.466
+                    [bid] => 1.95
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [ask] => 2.47
+                )
+
+            [3] => stdClass Object
+                (
+                    [spread] => 0.52
+                    [melt] => 0.1
+                    [bidPercise] => 1.951
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [askPercise] => 2.466
+                    [bid] => 1.95
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [ask] => 2.47
+                )
+
+            [2] => stdClass Object
+                (
+                    [spread] => 0.52
+                    [melt] => 0.1
+                    [bidPercise] => 1.951
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [askPercise] => 2.466
+                    [bid] => 1.95
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [ask] => 2.47
+                )
+
+            [1] => stdClass Object
+                (
+                    [spread] => 0.52
+                    [melt] => 0.1
+                    [bidPercise] => 1.951
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [askPercise] => 2.466
+                    [bid] => 1.95
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [ask] => 2.47
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 765
+    [sp_id] => 4594617680004
+    [variant1_id] => 32365588906116
+    [dg_code] => .1SRDBUGSM
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 476.8
+    [lastUpdate] => 2020-02-24 14:33:40
+)
+</pre><pre>stdClass Object
+(
+    [code] => .1SRDBUGSM
+    [isActiveBuy] => N
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [bidPercise] => 1.861
+                    [spread] => 0.66
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [melt] => 0.1
+                    [askPercise] => 2.516
+                    [ask] => 2.52
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [bid] => 1.86
+                )
+
+            [3] => stdClass Object
+                (
+                    [bidPercise] => 1.861
+                    [spread] => 0.66
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [melt] => 0.1
+                    [askPercise] => 2.516
+                    [ask] => 2.52
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [bid] => 1.86
+                )
+
+            [2] => stdClass Object
+                (
+                    [bidPercise] => 1.861
+                    [spread] => 0.66
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [melt] => 0.1
+                    [askPercise] => 2.516
+                    [ask] => 2.52
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [bid] => 1.86
+                )
+
+            [1] => stdClass Object
+                (
+                    [bidPercise] => 1.861
+                    [spread] => 0.66
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [melt] => 0.1
+                    [askPercise] => 2.516
+                    [ask] => 2.52
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [bid] => 1.86
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 766
+    [sp_id] => 4594618237060
+    [variant1_id] => 32365589692548
+    [dg_code] => .1SRDINGSM
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 496.3
+    [lastUpdate] => 2020-02-24 14:33:44
+)
+</pre><pre>stdClass Object
+(
+    [code] => .1SRDINGSM
+    [isActiveBuy] => N
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [bidPercise] => 1.861
+                    [spread] => 0.56
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [melt] => 0.1
+                    [askPercise] => 2.416
+                    [ask] => 2.42
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [bid] => 1.86
+                )
+
+            [3] => stdClass Object
+                (
+                    [bidPercise] => 1.861
+                    [spread] => 0.56
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [melt] => 0.1
+                    [askPercise] => 2.416
+                    [ask] => 2.42
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [bid] => 1.86
+                )
+
+            [2] => stdClass Object
+                (
+                    [bidPercise] => 1.861
+                    [spread] => 0.56
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [melt] => 0.1
+                    [askPercise] => 2.416
+                    [ask] => 2.42
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [bid] => 1.86
+                )
+
+            [1] => stdClass Object
+                (
+                    [bidPercise] => 1.861
+                    [spread] => 0.56
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [melt] => 0.1
+                    [askPercise] => 2.416
+                    [ask] => 2.42
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [bid] => 1.86
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 767
+    [sp_id] => 4594618892420
+    [variant1_id] => 32365590577284
+    [dg_code] => .1SRDMORG
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 486.4
+    [lastUpdate] => 2020-02-24 14:33:49
+)
+</pre><pre>stdClass Object
+(
+    [code] => .1SRDMORG
+    [isActiveBuy] => Y
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [spread] => 0.52
+                    [melt] => 0.1
+                    [bidPercise] => 1.951
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [askPercise] => 2.466
+                    [bid] => 1.95
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [ask] => 2.47
+                )
+
+            [3] => stdClass Object
+                (
+                    [spread] => 0.52
+                    [melt] => 0.1
+                    [bidPercise] => 1.951
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [askPercise] => 2.466
+                    [bid] => 1.95
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [ask] => 2.47
+                )
+
+            [2] => stdClass Object
+                (
+                    [spread] => 0.52
+                    [melt] => 0.1
+                    [bidPercise] => 1.951
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [askPercise] => 2.466
+                    [bid] => 1.95
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [ask] => 2.47
+                )
+
+            [1] => stdClass Object
+                (
+                    [spread] => 0.52
+                    [melt] => 0.1
+                    [bidPercise] => 1.951
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [askPercise] => 2.466
+                    [bid] => 1.95
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [ask] => 2.47
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 768
+    [sp_id] => 4594619678852
+    [variant1_id] => 32365592281220
+    [dg_code] => .1SRDWL
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 486.4
+    [lastUpdate] => 2020-02-24 14:33:54
+)
+</pre><pre>stdClass Object
+(
+    [code] => .1SRDWL
+    [isActiveBuy] => Y
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [spread] => 0.52
+                    [melt] => 0.1
+                    [bidPercise] => 1.951
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [askPercise] => 2.466
+                    [bid] => 1.95
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [ask] => 2.47
+                )
+
+            [3] => stdClass Object
+                (
+                    [spread] => 0.52
+                    [melt] => 0.1
+                    [bidPercise] => 1.951
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [askPercise] => 2.466
+                    [bid] => 1.95
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [ask] => 2.47
+                )
+
+            [2] => stdClass Object
+                (
+                    [spread] => 0.52
+                    [melt] => 0.1
+                    [bidPercise] => 1.951
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [askPercise] => 2.466
+                    [bid] => 1.95
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [ask] => 2.47
+                )
+
+            [1] => stdClass Object
+                (
+                    [spread] => 0.52
+                    [melt] => 0.1
+                    [bidPercise] => 1.951
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [askPercise] => 2.466
+                    [bid] => 1.95
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [ask] => 2.47
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 769
+    [sp_id] => 4594620563588
+    [variant1_id] => 32365593231492
+    [dg_code] => .1SRDWLGSM
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 476.8
+    [lastUpdate] => 2020-02-24 14:33:57
+)
+</pre><pre>stdClass Object
+(
+    [code] => .1SRDWLGSM
+    [isActiveBuy] => N
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [bidPercise] => 1.861
+                    [spread] => 0.66
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [melt] => 0.1
+                    [askPercise] => 2.516
+                    [ask] => 2.52
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [bid] => 1.86
+                )
+
+            [3] => stdClass Object
+                (
+                    [bidPercise] => 1.861
+                    [spread] => 0.66
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [melt] => 0.1
+                    [askPercise] => 2.516
+                    [ask] => 2.52
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [bid] => 1.86
+                )
+
+            [2] => stdClass Object
+                (
+                    [bidPercise] => 1.861
+                    [spread] => 0.66
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [melt] => 0.1
+                    [askPercise] => 2.516
+                    [ask] => 2.52
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [bid] => 1.86
+                )
+
+            [1] => stdClass Object
+                (
+                    [bidPercise] => 1.861
+                    [spread] => 0.66
+                    [meltAskFormulaToolTip] => (0.1 * 18.66)=1.866
+                    [melt] => 0.1
+                    [askPercise] => 2.516
+                    [ask] => 2.52
+                    [meltBidFormulaToolTip] => (0.1 * 18.61)=1.861
+                    [bid] => 1.86
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 758
+    [sp_id] => 4594614337668
+    [variant1_id] => 32365579960452
+    [dg_code] => .25SRDBUFF
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 219.9
+    [lastUpdate] => 2020-02-24 14:33:12
+)
+</pre><pre>stdClass Object
+(
+    [code] => .25SRDBUFF
+    [isActiveBuy] => Y
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [spread] => 0.8
+                    [melt] => 0.25
+                    [bidPercise] => 4.765
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [askPercise] => 5.565
+                    [bid] => 4.76
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [ask] => 5.56
+                )
+
+            [3] => stdClass Object
+                (
+                    [spread] => 0.8
+                    [melt] => 0.25
+                    [bidPercise] => 4.765
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [askPercise] => 5.565
+                    [bid] => 4.76
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [ask] => 5.56
+                )
+
+            [2] => stdClass Object
+                (
+                    [spread] => 0.8
+                    [melt] => 0.25
+                    [bidPercise] => 4.765
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [askPercise] => 5.565
+                    [bid] => 4.76
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [ask] => 5.56
+                )
+
+            [1] => stdClass Object
+                (
+                    [spread] => 0.8
+                    [melt] => 0.25
+                    [bidPercise] => 4.765
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [askPercise] => 5.565
+                    [bid] => 4.76
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [ask] => 5.56
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 759
+    [sp_id] => 4594614894724
+    [variant1_id] => 32365580714116
+    [dg_code] => .25SRDBUGSM
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 229.6
+    [lastUpdate] => 2020-02-24 14:33:16
+)
+</pre><pre>stdClass Object
+(
+    [code] => .25SRDBUGSM
+    [isActiveBuy] => N
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [bidPercise] => 4.6525
+                    [spread] => 0.67
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [melt] => 0.25
+                    [askPercise] => 5.315
+                    [ask] => 5.32
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [bid] => 4.65
+                )
+
+            [3] => stdClass Object
+                (
+                    [bidPercise] => 4.6525
+                    [spread] => 0.67
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [melt] => 0.25
+                    [askPercise] => 5.315
+                    [ask] => 5.32
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [bid] => 4.65
+                )
+
+            [2] => stdClass Object
+                (
+                    [bidPercise] => 4.6525
+                    [spread] => 0.67
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [melt] => 0.25
+                    [askPercise] => 5.315
+                    [ask] => 5.32
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [bid] => 4.65
+                )
+
+            [1] => stdClass Object
+                (
+                    [bidPercise] => 4.6525
+                    [spread] => 0.67
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [melt] => 0.25
+                    [askPercise] => 5.315
+                    [ask] => 5.32
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [bid] => 4.65
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 760
+    [sp_id] => 4594615484548
+    [variant1_id] => 32365583040644
+    [dg_code] => .25SRDINGSM
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 229.6
+    [lastUpdate] => 2020-02-24 14:33:20
+)
+</pre><pre>stdClass Object
+(
+    [code] => .25SRDINGSM
+    [isActiveBuy] => N
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [bidPercise] => 4.6525
+                    [spread] => 0.67
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [melt] => 0.25
+                    [askPercise] => 5.315
+                    [ask] => 5.32
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [bid] => 4.65
+                )
+
+            [3] => stdClass Object
+                (
+                    [bidPercise] => 4.6525
+                    [spread] => 0.67
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [melt] => 0.25
+                    [askPercise] => 5.315
+                    [ask] => 5.32
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [bid] => 4.65
+                )
+
+            [2] => stdClass Object
+                (
+                    [bidPercise] => 4.6525
+                    [spread] => 0.67
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [melt] => 0.25
+                    [askPercise] => 5.315
+                    [ask] => 5.32
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [bid] => 4.65
+                )
+
+            [1] => stdClass Object
+                (
+                    [bidPercise] => 4.6525
+                    [spread] => 0.67
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [melt] => 0.25
+                    [askPercise] => 5.315
+                    [ask] => 5.32
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [bid] => 4.65
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 761
+    [sp_id] => 4594616008836
+    [variant1_id] => 32365583728772
+    [dg_code] => .25SRDMORG
+    [activeSell] => Y
+    [isAvailable] => 1-5 Days
+    [basePrice] => 219.9
+    [lastUpdate] => 2020-02-24 14:33:24
+)
+</pre><pre>stdClass Object
+(
+    [code] => .25SRDMORG
+    [isActiveBuy] => Y
+    [isActiveSell] => Y
+    [availability] => 1-5 Days
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [spread] => 0.8
+                    [melt] => 0.25
+                    [bidPercise] => 4.765
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [askPercise] => 5.565
+                    [bid] => 4.76
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [ask] => 5.56
+                )
+
+            [3] => stdClass Object
+                (
+                    [spread] => 0.8
+                    [melt] => 0.25
+                    [bidPercise] => 4.765
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [askPercise] => 5.565
+                    [bid] => 4.76
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [ask] => 5.56
+                )
+
+            [2] => stdClass Object
+                (
+                    [spread] => 0.8
+                    [melt] => 0.25
+                    [bidPercise] => 4.765
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [askPercise] => 5.565
+                    [bid] => 4.76
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [ask] => 5.56
+                )
+
+            [1] => stdClass Object
+                (
+                    [spread] => 0.8
+                    [melt] => 0.25
+                    [bidPercise] => 4.765
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [askPercise] => 5.565
+                    [bid] => 4.76
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [ask] => 5.56
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 762
+    [sp_id] => 4594616402052
+    [variant1_id] => 32365584187524
+    [dg_code] => .25SRDWL
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 219.9
+    [lastUpdate] => 2020-02-24 14:33:27
+)
+</pre><pre>stdClass Object
+(
+    [code] => .25SRDWL
+    [isActiveBuy] => Y
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [spread] => 0.8
+                    [melt] => 0.25
+                    [bidPercise] => 4.765
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [askPercise] => 5.565
+                    [bid] => 4.76
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [ask] => 5.56
+                )
+
+            [3] => stdClass Object
+                (
+                    [spread] => 0.8
+                    [melt] => 0.25
+                    [bidPercise] => 4.765
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [askPercise] => 5.565
+                    [bid] => 4.76
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [ask] => 5.56
+                )
+
+            [2] => stdClass Object
+                (
+                    [spread] => 0.8
+                    [melt] => 0.25
+                    [bidPercise] => 4.765
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [askPercise] => 5.565
+                    [bid] => 4.76
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [ask] => 5.56
+                )
+
+            [1] => stdClass Object
+                (
+                    [spread] => 0.8
+                    [melt] => 0.25
+                    [bidPercise] => 4.765
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [askPercise] => 5.565
+                    [bid] => 4.76
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [ask] => 5.56
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 763
+    [sp_id] => 4594616795268
+    [variant1_id] => 32365584547972
+    [dg_code] => .25SRDWLGSM
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 229.6
+    [lastUpdate] => 2020-02-24 14:33:31
+)
+</pre><pre>stdClass Object
+(
+    [code] => .25SRDWLGSM
+    [isActiveBuy] => N
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [bidPercise] => 4.6525
+                    [spread] => 0.67
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [melt] => 0.25
+                    [askPercise] => 5.315
+                    [ask] => 5.32
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [bid] => 4.65
+                )
+
+            [3] => stdClass Object
+                (
+                    [bidPercise] => 4.6525
+                    [spread] => 0.67
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [melt] => 0.25
+                    [askPercise] => 5.315
+                    [ask] => 5.32
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [bid] => 4.65
+                )
+
+            [2] => stdClass Object
+                (
+                    [bidPercise] => 4.6525
+                    [spread] => 0.67
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [melt] => 0.25
+                    [askPercise] => 5.315
+                    [ask] => 5.32
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [bid] => 4.65
+                )
+
+            [1] => stdClass Object
+                (
+                    [bidPercise] => 4.6525
+                    [spread] => 0.67
+                    [meltAskFormulaToolTip] => (0.25 * 18.66)=4.665
+                    [melt] => 0.25
+                    [askPercise] => 5.315
+                    [ask] => 5.32
+                    [meltBidFormulaToolTip] => (0.25 * 18.61)=4.6525
+                    [bid] => 4.65
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 799
+    [sp_id] => 4594642157700
+    [variant1_id] => 32365652443268
+    [dg_code] => .5SLIB18
+    [activeSell] => Y
+    [isAvailable] => 
+    [basePrice] => 107.6
+    [lastUpdate] => 2020-02-24 14:36:42
+)
+</pre><pre>stdClass Object
+(
+    [code] => .5SLIB18
+    [isActiveBuy] => N
+    [isActiveSell] => Y
+    [availability] => 
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [spread] => 2.78
+                    [melt] => 0.5
+                    [bidPercise] => 9.805
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 12.58
+                    [bid] => 9.8
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 12.58
+                )
+
+            [3] => stdClass Object
+                (
+                    [spread] => 2.78
+                    [melt] => 0.5
+                    [bidPercise] => 9.805
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 12.58
+                    [bid] => 9.8
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 12.58
+                )
+
+            [2] => stdClass Object
+                (
+                    [spread] => 2.78
+                    [melt] => 0.5
+                    [bidPercise] => 9.805
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 12.58
+                    [bid] => 9.8
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 12.58
+                )
+
+            [1] => stdClass Object
+                (
+                    [spread] => 2.78
+                    [melt] => 0.5
+                    [bidPercise] => 9.805
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 12.58
+                    [bid] => 9.8
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 12.58
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 671
+    [sp_id] => 4594559811716
+    [variant1_id] => 32365473792132
+    [dg_code] => .5SPMO20
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 107.4
+    [lastUpdate] => 2020-02-24 14:25:59
+)
+</pre><pre>stdClass Object
+(
+    [code] => .5SPMO20
+    [isActiveBuy] => N
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [spread] => 3.02
+                    [melt] => 0.5
+                    [bidPercise] => 9.555
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 12.58
+                    [bid] => 9.56
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 12.58
+                )
+
+            [3] => stdClass Object
+                (
+                    [spread] => 3.02
+                    [melt] => 0.5
+                    [bidPercise] => 9.555
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 12.58
+                    [bid] => 9.56
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 12.58
+                )
+
+            [2] => stdClass Object
+                (
+                    [spread] => 3.02
+                    [melt] => 0.5
+                    [bidPercise] => 9.555
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 12.58
+                    [bid] => 9.56
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 12.58
+                )
+
+            [1] => stdClass Object
+                (
+                    [spread] => 3.02
+                    [melt] => 0.5
+                    [bidPercise] => 9.555
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 12.58
+                    [bid] => 9.56
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 12.58
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 752
+    [sp_id] => 4594612535428
+    [variant1_id] => 32365575766148
+    [dg_code] => .5SRDBUFF
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 125.4
+    [lastUpdate] => 2020-02-24 14:32:49
+)
+</pre><pre>stdClass Object
+(
+    [code] => .5SRDBUFF
+    [isActiveBuy] => Y
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [spread] => 0.88
+                    [melt] => 0.5
+                    [bidPercise] => 9.505
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 10.38
+                    [bid] => 9.5
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 10.38
+                )
+
+            [3] => stdClass Object
+                (
+                    [spread] => 0.88
+                    [melt] => 0.5
+                    [bidPercise] => 9.505
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 10.38
+                    [bid] => 9.5
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 10.38
+                )
+
+            [2] => stdClass Object
+                (
+                    [spread] => 0.88
+                    [melt] => 0.5
+                    [bidPercise] => 9.505
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 10.38
+                    [bid] => 9.5
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 10.38
+                )
+
+            [1] => stdClass Object
+                (
+                    [spread] => 0.88
+                    [melt] => 0.5
+                    [bidPercise] => 9.505
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 10.38
+                    [bid] => 9.5
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 10.38
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 753
+    [sp_id] => 4594612732036
+    [variant1_id] => 32365576552580
+    [dg_code] => .5SRDBUGSM
+    [activeSell] => Y
+    [isAvailable] => 1-5 Days
+    [basePrice] => 127.8
+    [lastUpdate] => 2020-02-24 14:32:53
+)
+</pre><pre>stdClass Object
+(
+    [code] => .5SRDBUGSM
+    [isActiveBuy] => N
+    [isActiveSell] => Y
+    [availability] => 1-5 Days
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [bidPercise] => 9.305
+                    [spread] => 0.83
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [melt] => 0.5
+                    [askPercise] => 10.13
+                    [ask] => 10.13
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [bid] => 9.3
+                )
+
+            [3] => stdClass Object
+                (
+                    [bidPercise] => 9.305
+                    [spread] => 0.83
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [melt] => 0.5
+                    [askPercise] => 10.13
+                    [ask] => 10.13
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [bid] => 9.3
+                )
+
+            [2] => stdClass Object
+                (
+                    [bidPercise] => 9.305
+                    [spread] => 0.83
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [melt] => 0.5
+                    [askPercise] => 10.13
+                    [ask] => 10.13
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [bid] => 9.3
+                )
+
+            [1] => stdClass Object
+                (
+                    [bidPercise] => 9.305
+                    [spread] => 0.83
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [melt] => 0.5
+                    [askPercise] => 10.13
+                    [ask] => 10.13
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [bid] => 9.3
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 754
+    [sp_id] => 4594612863108
+    [variant1_id] => 32365576749188
+    [dg_code] => .5SRDINGSM
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 129.0
+    [lastUpdate] => 2020-02-24 14:32:57
+)
+</pre><pre>stdClass Object
+(
+    [code] => .5SRDINGSM
+    [isActiveBuy] => N
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [bidPercise] => 9.305
+                    [spread] => 0.73
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [melt] => 0.5
+                    [askPercise] => 10.03
+                    [ask] => 10.03
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [bid] => 9.3
+                )
+
+            [3] => stdClass Object
+                (
+                    [bidPercise] => 9.305
+                    [spread] => 0.73
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [melt] => 0.5
+                    [askPercise] => 10.03
+                    [ask] => 10.03
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [bid] => 9.3
+                )
+
+            [2] => stdClass Object
+                (
+                    [bidPercise] => 9.305
+                    [spread] => 0.73
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [melt] => 0.5
+                    [askPercise] => 10.03
+                    [ask] => 10.03
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [bid] => 9.3
+                )
+
+            [1] => stdClass Object
+                (
+                    [bidPercise] => 9.305
+                    [spread] => 0.73
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [melt] => 0.5
+                    [askPercise] => 10.03
+                    [ask] => 10.03
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [bid] => 9.3
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 755
+    [sp_id] => 4594612994180
+    [variant1_id] => 32365576945796
+    [dg_code] => .5SRDMORG
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 125.4
+    [lastUpdate] => 2020-02-24 14:33:01
+)
+</pre><pre>stdClass Object
+(
+    [code] => .5SRDMORG
+    [isActiveBuy] => Y
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [spread] => 0.88
+                    [melt] => 0.5
+                    [bidPercise] => 9.505
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 10.38
+                    [bid] => 9.5
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 10.38
+                )
+
+            [3] => stdClass Object
+                (
+                    [spread] => 0.88
+                    [melt] => 0.5
+                    [bidPercise] => 9.505
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 10.38
+                    [bid] => 9.5
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 10.38
+                )
+
+            [2] => stdClass Object
+                (
+                    [spread] => 0.88
+                    [melt] => 0.5
+                    [bidPercise] => 9.505
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 10.38
+                    [bid] => 9.5
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 10.38
+                )
+
+            [1] => stdClass Object
+                (
+                    [spread] => 0.88
+                    [melt] => 0.5
+                    [bidPercise] => 9.505
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 10.38
+                    [bid] => 9.5
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 10.38
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 756
+    [sp_id] => 4594613452932
+    [variant1_id] => 32365578616964
+    [dg_code] => .5SRDWL
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 125.4
+    [lastUpdate] => 2020-02-24 14:33:05
+)
+</pre><pre>stdClass Object
+(
+    [code] => .5SRDWL
+    [isActiveBuy] => Y
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [spread] => 0.88
+                    [melt] => 0.5
+                    [bidPercise] => 9.505
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 10.38
+                    [bid] => 9.5
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 10.38
+                )
+
+            [3] => stdClass Object
+                (
+                    [spread] => 0.88
+                    [melt] => 0.5
+                    [bidPercise] => 9.505
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 10.38
+                    [bid] => 9.5
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 10.38
+                )
+
+            [2] => stdClass Object
+                (
+                    [spread] => 0.88
+                    [melt] => 0.5
+                    [bidPercise] => 9.505
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 10.38
+                    [bid] => 9.5
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 10.38
+                )
+
+            [1] => stdClass Object
+                (
+                    [spread] => 0.88
+                    [melt] => 0.5
+                    [bidPercise] => 9.505
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [askPercise] => 10.38
+                    [bid] => 9.5
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [ask] => 10.38
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 757
+    [sp_id] => 4594613944452
+    [variant1_id] => 32365579305092
+    [dg_code] => .5SRDWLGSM
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 127.8
+    [lastUpdate] => 2020-02-24 14:33:08
+)
+</pre><pre>stdClass Object
+(
+    [code] => .5SRDWLGSM
+    [isActiveBuy] => N
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [bidPercise] => 9.305
+                    [spread] => 0.83
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [melt] => 0.5
+                    [askPercise] => 10.13
+                    [ask] => 10.13
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [bid] => 9.3
+                )
+
+            [3] => stdClass Object
+                (
+                    [bidPercise] => 9.305
+                    [spread] => 0.83
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [melt] => 0.5
+                    [askPercise] => 10.13
+                    [ask] => 10.13
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [bid] => 9.3
+                )
+
+            [2] => stdClass Object
+                (
+                    [bidPercise] => 9.305
+                    [spread] => 0.83
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [melt] => 0.5
+                    [askPercise] => 10.13
+                    [ask] => 10.13
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [bid] => 9.3
+                )
+
+            [1] => stdClass Object
+                (
+                    [bidPercise] => 9.305
+                    [spread] => 0.83
+                    [meltAskFormulaToolTip] => (0.5 * 18.66)=9.33
+                    [melt] => 0.5
+                    [askPercise] => 10.13
+                    [ask] => 10.13
+                    [meltBidFormulaToolTip] => (0.5 * 18.61)=9.305
+                    [bid] => 9.3
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 779
+    [sp_id] => 4594626658436
+    [variant1_id] => 32365610401924
+    [dg_code] => .999SGRAIN
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 82.2
+    [lastUpdate] => 2020-02-24 14:34:44
+)
+</pre><pre>stdClass Object
+(
+    [code] => .999SGRAIN
+    [isActiveBuy] => N
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [spread] => 18.86
+                    [melt] => 1
+                    [bidPercise] => 0
+                    [meltAskFormulaToolTip] => (1 * 18.66)=18.66
+                    [askPercise] => 18.86
+                    [bid] => 0
+                    [meltBidFormulaToolTip] => (1 * 18.61)=18.61
+                    [ask] => 18.86
+                )
+
+            [3] => stdClass Object
+                (
+                    [spread] => 18.86
+                    [melt] => 1
+                    [bidPercise] => 0
+                    [meltAskFormulaToolTip] => (1 * 18.66)=18.66
+                    [askPercise] => 18.86
+                    [bid] => 0
+                    [meltBidFormulaToolTip] => (1 * 18.61)=18.61
+                    [ask] => 18.86
+                )
+
+            [2] => stdClass Object
+                (
+                    [spread] => 18.86
+                    [melt] => 1
+                    [bidPercise] => 0
+                    [meltAskFormulaToolTip] => (1 * 18.66)=18.66
+                    [askPercise] => 18.86
+                    [bid] => 0
+                    [meltBidFormulaToolTip] => (1 * 18.61)=18.61
+                    [ask] => 18.86
+                )
+
+            [1] => stdClass Object
+                (
+                    [spread] => 18.86
+                    [melt] => 1
+                    [bidPercise] => 0
+                    [meltAskFormulaToolTip] => (1 * 18.66)=18.66
+                    [askPercise] => 18.86
+                    [bid] => 0
+                    [meltBidFormulaToolTip] => (1 * 18.61)=18.61
+                    [ask] => 18.86
+                )
+
+        )
+
+)
+</pre><pre>Array
+(
+    [id] => 673
+    [sp_id] => 4594560368772
+    [variant1_id] => 32365474513028
+    [dg_code] => 1.5SFA16
+    [activeSell] => Y
+    [isAvailable] => Live
+    [basePrice] => 70.0
+    [lastUpdate] => 2020-02-24 14:26:05
+)
+</pre><pre>stdClass Object
+(
+    [code] => 1.5SFA16
+    [isActiveBuy] => N
+    [isActiveSell] => Y
+    [availability] => Live
+    [tiers] => stdClass Object
+        (
+            [4] => stdClass Object
+                (
+                    [spread] => 2.1
+                    [melt] => 1.5
+                    [bidPercise] => 27.765
+                    [meltAskFormulaToolTip] => (1.5 * 18.66)=27.99
+                    [askPercise] => 29.865
+                    [bid] => 27.76
+                    [meltBidFormulaToolTip] => (1.5 * 18.61)=27.915
+                    [ask] => 29.86
+                )
+
+            [3] => stdClass Object
+                (
+                    [spread] => 2.1
+                    [melt] => 1.5
+                    [bidPercise] => 27.765
+                    [meltAskFormulaToolTip] => (1.5 * 18.66)=27.99
+                    [askPercise] => 29.865
+                    [bid] => 27.76
+                    [meltBidFormulaToolTip] => (1.5 * 18.61)=27.915
+                    [ask] => 29.86
+                )
+
+            [2] => stdClass Object
+                (
+                    [spread] => 2.1
+                    [melt] => 1.5
+                    [bidPercise] => 27.765
+                    [meltAskFormulaToolTip] => (1.5 * 18.66)=27.99
+                    [askPercise] => 29.865
+                    [bid] => 27.76
+                    [meltBidFormulaToolTip] => (1.5 * 18.61)=27.915
+                    [ask] => 29.86
+                )
+
+            [1] => stdClass Object
+                (
+                    [spread] => 2.1
+                    [melt] => 1.5
+                    [bidPercise] => 27.765
+                    [meltAskFormulaToolTip] => (1.5 * 18.66)=27.99
+                    [askPercise] => 29.865
+                    [bid] => 27.76
+                    [meltBidFormulaToolTip] => (1.5 * 18.61)=27.915
+                    [ask] => 29.86
+                )
+
+        )
+
+)
+</pre>

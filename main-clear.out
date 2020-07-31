@@ -1,0 +1,94 @@
+Setting up and initializing variables....
+Initializing FIZTRADE parameters array...
+Initializing SHOPIFY parameters...
+instantiate database object and connect...
+Instantiate products object & pull all FIZTRADE products by metal type
+Warning: parse_str(): Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in C:\xampp\htdocs\gagc\repo\main-clear.php on line 125
+
+Call Stack:
+    0.0007     395888   1. {main}() C:\xampp\htdocs\gagc\repo\main-clear.php:0
+    2.3010    1540464   2. parse_str() C:\xampp\htdocs\gagc\repo\main-clear.php:125
+
+
+Loop through product object & get associated image / pricing data
+
+Warning: parse_str(): Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in C:\xampp\htdocs\gagc\repo\main-clear.php on line 153
+
+Call Stack:
+    0.0007     395888   1. {main}() C:\xampp\htdocs\gagc\repo\main-clear.php:0
+    2.7350    1665512   2. parse_str() C:\xampp\htdocs\gagc\repo\main-clear.php:153
+
+building product record for shopify product creation{"image":{"id":14497006616708,"product_id":4583782809732,"position":1,"created_at":"2020-02-20T17:32:58-08:00","updated_at":"2020-02-20T17:32:58-08:00","alt":null,"width":250,"height":250,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/0110\/5743\/0591\/products\/90m_combo_obverse_250x250_png_c5e5ae78-58aa-4d93-8b8b-654883dc8e80.png?v=1582248778","variant_ids":[],"admin_graphql_api_id":"gid:\/\/shopify\/ProductImage\/14497006616708"}}successsuccesssuccess<pre>Database
+66</pre>
+Warning: parse_str(): Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in C:\xampp\htdocs\gagc\repo\main-clear.php on line 153
+
+Call Stack:
+    0.0007     395888   1. {main}() C:\xampp\htdocs\gagc\repo\main-clear.php:0
+    7.1025    1817912   2. parse_str() C:\xampp\htdocs\gagc\repo\main-clear.php:153
+
+building product record for shopify product creation{"image":{"id":14497007108228,"product_id":4583782973572,"position":1,"created_at":"2020-02-20T17:33:02-08:00","updated_at":"2020-02-20T17:33:02-08:00","alt":null,"width":250,"height":250,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/0110\/5743\/0591\/products\/90md_obverse_250x250_png_33f5ee61-3ade-4d45-b3d6-86fe05a90f9f.png?v=1582248782","variant_ids":[],"admin_graphql_api_id":"gid:\/\/shopify\/ProductImage\/14497007108228"}}successsuccesssuccess<pre>Database
+67</pre>
+Warning: parse_str(): Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in C:\xampp\htdocs\gagc\repo\main-clear.php on line 153
+
+Call Stack:
+    0.0007     395888   1. {main}() C:\xampp\htdocs\gagc\repo\main-clear.php:0
+   11.8825    1817880   2. parse_str() C:\xampp\htdocs\gagc\repo\main-clear.php:153
+
+building product record for shopify product creation{"image":{"id":14497007829124,"product_id":4583783235716,"position":1,"created_at":"2020-02-20T17:33:07-08:00","updated_at":"2020-02-20T17:33:07-08:00","alt":null,"width":250,"height":250,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/0110\/5743\/0591\/products\/90mf_obverse_250x250_png_456cac44-af9e-4a12-bce5-b8b3d77c8265.png?v=1582248787","variant_ids":[],"admin_graphql_api_id":"gid:\/\/shopify\/ProductImage\/14497007829124"}}successsuccesssuccess<pre>Database
+68</pre>
+Warning: parse_str(): Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in C:\xampp\htdocs\gagc\repo\main-clear.php on line 153
+
+Call Stack:
+    0.0007     395888   1. {main}() C:\xampp\htdocs\gagc\repo\main-clear.php:0
+   16.9144    1817928   2. parse_str() C:\xampp\htdocs\gagc\repo\main-clear.php:153
+
+building product record for shopify product creation{"image":{"id":14497008287876,"product_id":4583783366788,"position":1,"created_at":"2020-02-20T17:33:11-08:00","updated_at":"2020-02-20T17:33:11-08:00","alt":null,"width":250,"height":250,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/0110\/5743\/0591\/products\/90mh_obverse_250x250_png_3147824b-2ec9-4156-a1eb-642429856294.png?v=1582248791","variant_ids":[],"admin_graphql_api_id":"gid:\/\/shopify\/ProductImage\/14497008287876"}}successsuccesssuccess<pre>Database
+69</pre>
+Warning: parse_str(): Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in C:\xampp\htdocs\gagc\repo\main-clear.php on line 153
+
+Call Stack:
+    0.0007     395888   1. {main}() C:\xampp\htdocs\gagc\repo\main-clear.php:0
+   21.3801    1817888   2. parse_str() C:\xampp\htdocs\gagc\repo\main-clear.php:153
+
+building product record for shopify product creation{"image":{"id":14497008681092,"product_id":4583783465092,"position":1,"created_at":"2020-02-20T17:33:16-08:00","updated_at":"2020-02-20T17:33:16-08:00","alt":null,"width":250,"height":250,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/0110\/5743\/0591\/products\/90mk_obverse_250x250_png_3ed4fdc4-f3d8-41f8-a202-5efa317bed18.png?v=1582248796","variant_ids":[],"admin_graphql_api_id":"gid:\/\/shopify\/ProductImage\/14497008681092"}}successsuccesssuccess<pre>Database
+70</pre>
+Warning: parse_str(): Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in C:\xampp\htdocs\gagc\repo\main-clear.php on line 153
+
+Call Stack:
+    0.0007     395888   1. {main}() C:\xampp\htdocs\gagc\repo\main-clear.php:0
+   25.9700    1817912   2. parse_str() C:\xampp\htdocs\gagc\repo\main-clear.php:153
+
+building product record for shopify product creation{"image":{"id":14497008976004,"product_id":4583783563396,"position":1,"created_at":"2020-02-20T17:33:21-08:00","updated_at":"2020-02-20T17:33:21-08:00","alt":null,"width":250,"height":250,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/0110\/5743\/0591\/products\/90mm_obverse_250x250_png_281a82b0-6c5a-4da5-8592-fa8156da9dbf.png?v=1582248801","variant_ids":[],"admin_graphql_api_id":"gid:\/\/shopify\/ProductImage\/14497008976004"}}successsuccesssuccess<pre>Database
+71</pre>
+Warning: parse_str(): Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in C:\xampp\htdocs\gagc\repo\main-clear.php on line 153
+
+Call Stack:
+    0.0007     395888   1. {main}() C:\xampp\htdocs\gagc\repo\main-clear.php:0
+   30.6978    1817864   2. parse_str() C:\xampp\htdocs\gagc\repo\main-clear.php:153
+
+building product record for shopify product creation{"image":{"id":14497009467524,"product_id":4583783727236,"position":1,"created_at":"2020-02-20T17:33:26-08:00","updated_at":"2020-02-20T17:33:26-08:00","alt":null,"width":250,"height":250,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/0110\/5743\/0591\/products\/90mq_obverse_250x250_png_ed49bea4-79a4-4a62-8fee-c0db61f997b2.png?v=1582248806","variant_ids":[],"admin_graphql_api_id":"gid:\/\/shopify\/ProductImage\/14497009467524"}}successsuccesssuccess<pre>Database
+72</pre>
+Warning: parse_str(): Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in C:\xampp\htdocs\gagc\repo\main-clear.php on line 153
+
+Call Stack:
+    0.0007     395888   1. {main}() C:\xampp\htdocs\gagc\repo\main-clear.php:0
+   35.2944    1817880   2. parse_str() C:\xampp\htdocs\gagc\repo\main-clear.php:153
+
+building product record for shopify product creation{"image":{"id":14497010253956,"product_id":4583783891076,"position":1,"created_at":"2020-02-20T17:33:30-08:00","updated_at":"2020-02-20T17:33:30-08:00","alt":null,"width":250,"height":250,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/0110\/5743\/0591\/products\/90mw_obverse_250x250_png_3eab80fc-d14d-42eb-b91e-0aebaf30ee69.png?v=1582248810","variant_ids":[],"admin_graphql_api_id":"gid:\/\/shopify\/ProductImage\/14497010253956"}}successsuccesssuccess<pre>Database
+73</pre>
+Warning: parse_str(): Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in C:\xampp\htdocs\gagc\repo\main-clear.php on line 153
+
+Call Stack:
+    0.0007     395888   1. {main}() C:\xampp\htdocs\gagc\repo\main-clear.php:0
+   44.0746    1817896   2. parse_str() C:\xampp\htdocs\gagc\repo\main-clear.php:153
+
+building product record for shopify product creation{"image":{"id":14497012646020,"product_id":4583784677508,"position":1,"created_at":"2020-02-20T17:33:39-08:00","updated_at":"2020-02-20T17:33:39-08:00","alt":null,"width":250,"height":250,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/0110\/5743\/0591\/products\/40h_obverse_250x250_png_b33cb2cf-1ba7-4f13-93e6-02865d2917d9.png?v=1582248819","variant_ids":[],"admin_graphql_api_id":"gid:\/\/shopify\/ProductImage\/14497012646020"}}successsuccesssuccess<pre>Database
+74</pre>
+Warning: parse_str(): Input variables exceeded 1000. To increase the limit change max_input_vars in php.ini. in C:\xampp\htdocs\gagc\repo\main-clear.php on line 153
+
+Call Stack:
+    0.0007     395888   1. {main}() C:\xampp\htdocs\gagc\repo\main-clear.php:0
+   48.9782    1817768   2. parse_str() C:\xampp\htdocs\gagc\repo\main-clear.php:153
+
+building product record for shopify product creation{"image":{"id":14497013170308,"product_id":4583784775812,"position":1,"created_at":"2020-02-20T17:33:44-08:00","updated_at":"2020-02-20T17:33:44-08:00","alt":null,"width":250,"height":250,"src":"https:\/\/cdn.shopify.com\/s\/files\/1\/0110\/5743\/0591\/products\/rike__obverse_250x250_png_05453c76-68d5-469e-8b0d-ab4d3eaa731a.png?v=1582248824","variant_ids":[],"admin_graphql_api_id":"gid:\/\/shopify\/ProductImage\/14497013170308"}}successsuccesssuccess<pre>Database
+75</pre>
